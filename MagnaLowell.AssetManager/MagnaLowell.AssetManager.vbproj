@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EC8A1825-8C15-4B3C-A848-6AB6D905BB93}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MagnaLowell.AssetManager</RootNamespace>
+    <AssemblyName>MagnaLowell.AssetManager</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>On</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <MyType>WindowsForms</MyType>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>MagnaLowell.AssetManager.My.MyApplication</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="DevExpress.BonusSkins.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 17.1\Components\Bin\Framework\DevExpress.BonusSkins.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="Effortless.Net.Encryption, Version=2.0.1.37, Culture=neutral, PublicKeyToken=603f9a8e5bb15e51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Effortless.Net.Encryption.2.0.1.37\lib\net40\Effortless.Net.Encryption.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.4.11\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\EditLineController.vb" />
+    <Compile Include="Interfaces\DbFactory.vb" />
+    <Compile Include="Interfaces\EditRepository.vb" />
+    <Compile Include="Interfaces\IController.vb" />
+    <Compile Include="Interfaces\EditModel.vb" />
+    <Compile Include="Interfaces\IShell.vb" />
+    <Compile Include="Interfaces\ReadonlyRepository.vb" />
+    <Compile Include="Interfaces\TransactionResult.vb" />
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Bindings.vb" />
+    <Compile Include="Interfaces\IDilg.vb" />
+    <Compile Include="Interfaces\IView.vb" />
+    <Compile Include="Models\Business\CfgTag.vb" />
+    <Compile Include="Models\Business\Device.vb" />
+    <Compile Include="Models\Business\DisplayCfgTag.vb" />
+    <Compile Include="Models\Business\ErgonomicCategory.vb" />
+    <Compile Include="Models\CfgSettings.vb" />
+    <Compile Include="Models\Business\Line.vb" />
+    <Compile Include="Models\Db\CfgTagRecord.vb">
+      <DependentUpon>MagnaLowell.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Db\DeviceRecord.vb">
+      <DependentUpon>MagnaLowell.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Db\ErgonomicCategoryRecord.vb">
+      <DependentUpon>MagnaLowell.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Db\GroupRecord.vb">
+      <DependentUpon>MagnaLowell.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Db\LineRecord.vb">
+      <DependentUpon>MagnaLowell.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Db\MagnaLowell.Context.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MagnaLowell.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Db\MagnaLowell.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MagnaLowell.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Db\MagnaLowell.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MagnaLowell.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Db\Magna_LowellEntities.vb" />
+    <Compile Include="Models\Business\PartResult.vb" />
+    <Compile Include="Models\Db\PartResultRecord.vb">
+      <DependentUpon>MagnaLowell.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Business\Station.vb" />
+    <Compile Include="Models\Db\StationRecord.vb">
+      <DependentUpon>MagnaLowell.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Business\StatusEnum.vb" />
+    <Compile Include="Models\Db\StatusEnumRecord.vb">
+      <DependentUpon>MagnaLowell.tt</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="Repositories\DeviceRepository.vb" />
+    <Compile Include="Repositories\DisplayTagRepository.vb" />
+    <Compile Include="Repositories\ErgonomicRepository.vb" />
+    <Compile Include="Repositories\LineRepository.vb" />
+    <Compile Include="Repositories\LineViewModelRepository.vb" />
+    <Compile Include="Repositories\TagRepository.vb" />
+    <Compile Include="Repositories\PartResultRepository.vb" />
+    <Compile Include="Repositories\StationRepository.vb" />
+    <Compile Include="Repositories\StatusEnumRepository.vb" />
+    <Compile Include="Views\EditLines.Designer.vb">
+      <DependentUpon>EditLines.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditLines.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Tools\CfgInterface.vb" />
+    <Compile Include="Views\Tools\DbInterface.vb" />
+    <Compile Include="Models\Db\DbResult.vb" />
+    <Compile Include="Views\Tools\MyTools.vb" />
+    <Compile Include="Views\Tools\TaskManager.vb" />
+    <Compile Include="Views\ViewCfg.Designer.vb">
+      <DependentUpon>ViewCfg.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewCfg.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ViewLine.Designer.vb">
+      <DependentUpon>ViewLine.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewLine.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ViewModels\EditLineViewModel.vb" />
+    <Compile Include="Views\ViewModels\LineViewModel.vb" />
+    <Compile Include="Views\ViewModels\PartResultsViewModel.vb" />
+    <Compile Include="Views\ViewModels\StationViewModel.vb" />
+    <Compile Include="Views\ViewPartResults.Designer.vb">
+      <DependentUpon>ViewPartResults.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewPartResults.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ViewStation.Designer.vb">
+      <DependentUpon>ViewStation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewStation.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ViewLine.resx">
+      <DependentUpon>ViewLine.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ViewPartResults.resx">
+      <DependentUpon>ViewPartResults.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ViewStation.resx">
+      <DependentUpon>ViewStation.vb</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Views\EditLines.resx">
+      <DependentUpon>EditLines.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ViewCfg.resx">
+      <DependentUpon>ViewCfg.vb</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Models\Db\MagnaLowell.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MagnaLowell.Designer.vb</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\Db\MagnaLowell.edmx.diagram">
+      <DependentUpon>MagnaLowell.edmx</DependentUpon>
+    </None>
+    <None Include="My Project\DataSources\CfgTag.datasource" />
+    <None Include="My Project\DataSources\ConfigUtil.Models.ProductionLine.datasource" />
+    <None Include="My Project\DataSources\ConfigUtil.Models.StationStatus.datasource" />
+    <None Include="My Project\DataSources\ConfigUtil.Models.User.datasource" />
+    <None Include="My Project\DataSources\ConfigUtil.Models.UserLinePermission.datasource" />
+    <None Include="My Project\DataSources\DisplayCfgTag.datasource" />
+    <None Include="My Project\DataSources\ErgonomicCategory.datasource" />
+    <None Include="My Project\DataSources\PartResult.datasource" />
+    <None Include="My Project\DataSources\ProductInformation.datasource" />
+    <None Include="My Project\DataSources\ProductLine.datasource" />
+    <None Include="My Project\DataSources\ResultEnum.datasource" />
+    <None Include="My Project\DataSources\Security_Asset.datasource" />
+    <None Include="My Project\DataSources\Security_StatusEnum.datasource" />
+    <None Include="My Project\DataSources\Security_UserTable.datasource" />
+    <None Include="My Project\DataSources\Station.datasource" />
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Content Include="Models\Db\MagnaLowell.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MagnaLowell.Context.vb</LastGenOutput>
+      <DependentUpon>MagnaLowell.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Db\MagnaLowell.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MagnaLowell.edmx</DependentUpon>
+      <LastGenOutput>MagnaLowell.vb</LastGenOutput>
+    </Content>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\database_edit.ico" />
+    <Content Include="Images\check_box.ico" />
+    <Content Include="Images\database_delete.ico" />
+    <Content Include="Images\database_error.ico" />
+    <Content Include="Images\database_save.ico" />
+    <None Include="Images\edit_button.ico" />
+    <Content Include="Images\file_save_as.ico" />
+    <Content Include="Images\lock.ico" />
+    <Content Include="Images\spinner.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

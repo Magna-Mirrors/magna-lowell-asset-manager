@@ -1,0 +1,547 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Magna_LowellModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="_Cfg_Devices">
+          <Key>
+            <PropertyRef Name="DeviceId" />
+          </Key>
+          <Property Name="WorkCellId" Type="int" Nullable="false" />
+          <Property Name="DeviceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="82" Nullable="false" />
+          <Property Name="DeviceName" Type="nvarchar" MaxLength="24" Nullable="false" />
+          <Property Name="DeviceType" Type="int" Nullable="false" />
+          <Property Name="Model" Type="int" Nullable="false" />
+          <Property Name="Driver" Type="int" Nullable="false" />
+          <Property Name="RoutePath" Type="nvarchar" MaxLength="48" Nullable="false" />
+          <Property Name="Simulate" Type="bit" Nullable="false" />
+          <Property Name="TimeOutConnect" Type="int" Nullable="false" />
+          <Property Name="TimeOutTransaction" Type="int" Nullable="false" />
+          <Property Name="AddressingType" Type="int" Nullable="false" />
+          <Property Name="MaxDataBytesRead" Type="int" Nullable="false" />
+          <Property Name="MaxDataBytesWrite" Type="int" Nullable="false" />
+          <Property Name="WordSwapFloat" Type="bit" Nullable="false" />
+          <Property Name="WordSwapLong" Type="bit" Nullable="false" />
+          <Property Name="WriteCoilFunction" Type="int" Nullable="false" />
+          <Property Name="WriteRegisterFunction" Type="int" Nullable="false" />
+          <Property Name="DeviceError" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="ChannelError" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="ComPort" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="PortSettings" Type="nvarchar" MaxLength="26" Nullable="false" />
+          <Property Name="PortDtrControl" Type="int" Nullable="false" />
+          <Property Name="PortRtsControl" Type="int" Nullable="false" />
+          <Property Name="SerialProtoCol" Type="int" Nullable="false" />
+          <Property Name="SerialMsgDelay" Type="int" Nullable="false" />
+          <Property Name="LinkType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="_Cfg_Groups">
+          <Key>
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="GroupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeviceId" Type="int" Nullable="false" />
+          <Property Name="GroupName" Type="nvarchar" MaxLength="24" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="82" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="UpdateRate" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="_Cfg_Tags">
+          <Key>
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="TagId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupId" Type="int" Nullable="false" />
+          <Property Name="TagName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="120" Nullable="false" />
+          <Property Name="HwTagName" Type="nvarchar" MaxLength="350" Nullable="false" />
+          <Property Name="HwTagType" Type="int" Nullable="false" />
+          <Property Name="HwDataType" Type="int" Nullable="false" />
+          <Property Name="Elements" Type="int" Nullable="false" />
+          <Property Name="StringLenth" Type="int" Nullable="false" />
+          <Property Name="OptimizeReads" Type="bit" Nullable="false" />
+          <Property Name="SimType" Type="int" Nullable="false" />
+          <Property Name="TagRole" Type="int" Nullable="false" />
+          <Property Name="RateChangeThreshold" Type="real" Nullable="false" />
+          <Property Name="Folder" Type="nvarchar" MaxLength="120" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Eqp_ErgonomicCategories">
+          <Key>
+            <PropertyRef Name="ErgId" />
+          </Key>
+          <Property Name="ErgId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="erg_Durration_Hrs" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="erg_Span_Hrs" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="erg_Rest_Hrs" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="eqp_Lines">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LineName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dept" Type="nvarchar" MaxLength="26" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MaxConcurrentLogins" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Eqp_PartResults">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="int" Nullable="false" />
+          <Property Name="LineId" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Eqp_StateEnum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StationId" Type="int" Nullable="false" />
+          <Property Name="State" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="82" Nullable="false" />
+        </EntityType>
+        <EntityType Name="eqp_Stations">
+          <Key>
+            <PropertyRef Name="StationId" />
+          </Key>
+          <Property Name="StationId" Type="int" Nullable="false" />
+          <Property Name="LineId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ErgonomicId" Type="int" Nullable="false" />
+          <Property Name="MinTrainingHours" Type="int" Nullable="false" />
+          <Property Name="DaysofConsideration" Type="int" Nullable="false" />
+          <Property Name="StatusTagId" Type="int" />
+          <Property Name="ShopLogixFolderName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Line_PartResults">
+          <End Role="eqp_Lines" Type="Self.eqp_Lines" Multiplicity="1" />
+          <End Role="Eqp_PartResults" Type="Self.Eqp_PartResults" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="eqp_Lines">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Eqp_PartResults">
+              <PropertyRef Name="LineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sdy_Stations_sdy_ErgonomicCategories">
+          <End Role="Eqp_ErgonomicCategories" Type="Self.Eqp_ErgonomicCategories" Multiplicity="1" />
+          <End Role="eqp_Stations" Type="Self.eqp_Stations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Eqp_ErgonomicCategories">
+              <PropertyRef Name="ErgId" />
+            </Principal>
+            <Dependent Role="eqp_Stations">
+              <PropertyRef Name="ErgonomicId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Station_StateEnum">
+          <End Role="eqp_Stations" Type="Self.eqp_Stations" Multiplicity="1" />
+          <End Role="Eqp_StateEnum" Type="Self.Eqp_StateEnum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="eqp_Stations">
+              <PropertyRef Name="StationId" />
+            </Principal>
+            <Dependent Role="Eqp_StateEnum">
+              <PropertyRef Name="StationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stations_Lines">
+          <End Role="eqp_Lines" Type="Self.eqp_Lines" Multiplicity="1" />
+          <End Role="eqp_Stations" Type="Self.eqp_Stations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="eqp_Lines">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="eqp_Stations">
+              <PropertyRef Name="LineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Magna_LowellModelStoreContainer">
+          <EntitySet Name="_Cfg_Devices" EntityType="Self._Cfg_Devices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="_Cfg_Groups" EntityType="Self._Cfg_Groups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="_Cfg_Tags" EntityType="Self._Cfg_Tags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Eqp_ErgonomicCategories" EntityType="Self.Eqp_ErgonomicCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="eqp_Lines" EntityType="Self.eqp_Lines" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Eqp_PartResults" EntityType="Self.Eqp_PartResults" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Eqp_StateEnum" EntityType="Self.Eqp_StateEnum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="eqp_Stations" EntityType="Self.eqp_Stations" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Line_PartResults" Association="Self.FK_Line_PartResults">
+            <End Role="eqp_Lines" EntitySet="eqp_Lines" />
+            <End Role="Eqp_PartResults" EntitySet="Eqp_PartResults" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sdy_Stations_sdy_ErgonomicCategories" Association="Self.FK_sdy_Stations_sdy_ErgonomicCategories">
+            <End Role="Eqp_ErgonomicCategories" EntitySet="Eqp_ErgonomicCategories" />
+            <End Role="eqp_Stations" EntitySet="eqp_Stations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Station_StateEnum" Association="Self.FK_Station_StateEnum">
+            <End Role="eqp_Stations" EntitySet="eqp_Stations" />
+            <End Role="Eqp_StateEnum" EntitySet="Eqp_StateEnum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stations_Lines" Association="Self.FK_Stations_Lines">
+            <End Role="eqp_Lines" EntitySet="eqp_Lines" />
+            <End Role="eqp_Stations" EntitySet="eqp_Stations" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Magna_LowellModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="LineRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LineName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaxConcurrentLogins" Type="Int32" Nullable="false" />
+          <Property Name="Dept" Type="String" MaxLength="26" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Eqp_PartResults" Relationship="Magna_LowellModel.FK_Line_PartResults" FromRole="LineRecord" ToRole="Eqp_PartResults" />
+          <NavigationProperty Name="eqp_Stations" Relationship="Magna_LowellModel.FK_Stations_Lines" FromRole="LineRecord" ToRole="eqp_Stations" />
+        </EntityType>
+        <EntityContainer Name="Magna_LowellEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LineRecords" EntityType="Magna_LowellModel.LineRecord" />
+          <EntitySet Name="ErgonomicCategoryRecords" EntityType="Magna_LowellModel.ErgonomicCategoryRecord" />
+          <EntitySet Name="CfgTagRecords" EntityType="Magna_LowellModel.CfgTagRecord" />
+          <EntitySet Name="PartResultRecords" EntityType="Magna_LowellModel.PartResultRecord" />
+          <AssociationSet Name="FK_Line_PartResults" Association="Magna_LowellModel.FK_Line_PartResults">
+            <End Role="LineRecord" EntitySet="LineRecords" />
+            <End Role="Eqp_PartResults" EntitySet="PartResultRecords" />
+          </AssociationSet>
+          <EntitySet Name="StatusEnumRecords" EntityType="Magna_LowellModel.StatusEnumRecord" />
+          <EntitySet Name="StationRecords" EntityType="Magna_LowellModel.StationRecord" />
+          <AssociationSet Name="FK_sdy_Stations_sdy_ErgonomicCategories" Association="Magna_LowellModel.FK_sdy_Stations_sdy_ErgonomicCategories">
+            <End Role="Eqp_ErgonomicCategories" EntitySet="ErgonomicCategoryRecords" />
+            <End Role="eqp_Stations" EntitySet="StationRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stations_Lines" Association="Magna_LowellModel.FK_Stations_Lines">
+            <End Role="LineRecord" EntitySet="LineRecords" />
+            <End Role="eqp_Stations" EntitySet="StationRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Station_StateEnum" Association="Magna_LowellModel.FK_Station_StateEnum">
+            <End Role="eqp_Stations" EntitySet="StationRecords" />
+            <End Role="StatusEnumRecord" EntitySet="StatusEnumRecords" />
+          </AssociationSet>
+          <EntitySet Name="GroupRecords" EntityType="Magna_LowellModel.GroupRecord" />
+          <EntitySet Name="DeviceRecords" EntityType="Magna_LowellModel.DeviceRecord" />
+        </EntityContainer>
+        <EntityType Name="ErgonomicCategoryRecord">
+          <Key>
+            <PropertyRef Name="ErgId" />
+          </Key>
+          <Property Name="ErgId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="erg_Durration_Hrs" Type="Decimal" Nullable="false" Precision="8" Scale="2" />
+          <Property Name="erg_Span_Hrs" Type="Decimal" Nullable="false" Precision="8" Scale="2" />
+          <Property Name="erg_Rest_Hrs" Type="Decimal" Nullable="false" Precision="8" Scale="2" />
+          <NavigationProperty Name="eqp_Stations" Relationship="Magna_LowellModel.FK_sdy_Stations_sdy_ErgonomicCategories" FromRole="Eqp_ErgonomicCategories" ToRole="eqp_Stations" />
+        </EntityType>
+        <EntityType Name="CfgTagRecord">
+          <Key>
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="TagId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupId" Type="Int32" Nullable="false" />
+          <Property Name="TagName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="HwTagName" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="HwTagType" Type="Int32" Nullable="false" />
+          <Property Name="HwDataType" Type="Int32" Nullable="false" />
+          <Property Name="Elements" Type="Int32" Nullable="false" />
+          <Property Name="StringLenth" Type="Int32" Nullable="false" />
+          <Property Name="OptimizeReads" Type="Boolean" Nullable="false" />
+          <Property Name="SimType" Type="Int32" Nullable="false" />
+          <Property Name="TagRole" Type="Int32" Nullable="false" />
+          <Property Name="RateChangeThreshold" Type="Single" Nullable="false" />
+          <Property Name="Folder" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PartResultRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="Int32" Nullable="false" />
+          <Property Name="LineId" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="eqp_Lines" Relationship="Magna_LowellModel.FK_Line_PartResults" FromRole="Eqp_PartResults" ToRole="LineRecord" />
+        </EntityType>
+        <Association Name="FK_Line_PartResults">
+          <End Type="Magna_LowellModel.LineRecord" Role="LineRecord" Multiplicity="1" />
+          <End Type="Magna_LowellModel.PartResultRecord" Role="Eqp_PartResults" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LineRecord">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Eqp_PartResults">
+              <PropertyRef Name="LineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="StatusEnumRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StationId" Type="Int32" Nullable="false" />
+          <Property Name="State" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="82" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="eqp_Stations" Relationship="Magna_LowellModel.FK_Station_StateEnum" FromRole="StatusEnumRecord" ToRole="eqp_Stations" />
+        </EntityType>
+        <EntityType Name="StationRecord">
+          <Key>
+            <PropertyRef Name="StationId" />
+          </Key>
+          <Property Name="StationId" Type="Int32" Nullable="false" />
+          <Property Name="LineId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ErgonomicId" Type="Int32" Nullable="false" />
+          <Property Name="MinTrainingHours" Type="Int32" Nullable="false" />
+          <Property Name="DaysofConsideration" Type="Int32" Nullable="false" />
+          <Property Name="StatusTagId" Type="Int32" />
+          <Property Name="ShopLogixFolderName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Eqp_ErgonomicCategories" Relationship="Magna_LowellModel.FK_sdy_Stations_sdy_ErgonomicCategories" FromRole="eqp_Stations" ToRole="Eqp_ErgonomicCategories" />
+          <NavigationProperty Name="eqp_Lines" Relationship="Magna_LowellModel.FK_Stations_Lines" FromRole="eqp_Stations" ToRole="LineRecord" />
+          <NavigationProperty Name="Eqp_StateEnum" Relationship="Magna_LowellModel.FK_Station_StateEnum" FromRole="eqp_Stations" ToRole="StatusEnumRecord" />
+        </EntityType>
+        <Association Name="FK_sdy_Stations_sdy_ErgonomicCategories">
+          <End Type="Magna_LowellModel.ErgonomicCategoryRecord" Role="Eqp_ErgonomicCategories" Multiplicity="1" />
+          <End Type="Magna_LowellModel.StationRecord" Role="eqp_Stations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Eqp_ErgonomicCategories">
+              <PropertyRef Name="ErgId" />
+            </Principal>
+            <Dependent Role="eqp_Stations">
+              <PropertyRef Name="ErgonomicId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stations_Lines">
+          <End Type="Magna_LowellModel.LineRecord" Role="LineRecord" Multiplicity="1" />
+          <End Type="Magna_LowellModel.StationRecord" Role="eqp_Stations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LineRecord">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="eqp_Stations">
+              <PropertyRef Name="LineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Station_StateEnum">
+          <End Type="Magna_LowellModel.StationRecord" Role="eqp_Stations" Multiplicity="1" />
+          <End Type="Magna_LowellModel.StatusEnumRecord" Role="StatusEnumRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="eqp_Stations">
+              <PropertyRef Name="StationId" />
+            </Principal>
+            <Dependent Role="StatusEnumRecord">
+              <PropertyRef Name="StationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="GroupRecord">
+          <Key>
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="GroupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeviceId" Type="Int32" Nullable="false" />
+          <Property Name="GroupName" Type="String" Nullable="false" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="82" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="UpdateRate" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeviceRecord">
+          <Key>
+            <PropertyRef Name="DeviceId" />
+          </Key>
+          <Property Name="WorkCellId" Type="Int32" Nullable="false" />
+          <Property Name="DeviceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="82" FixedLength="false" Unicode="true" />
+          <Property Name="DeviceName" Type="String" Nullable="false" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="DeviceType" Type="Int32" Nullable="false" />
+          <Property Name="Model" Type="Int32" Nullable="false" />
+          <Property Name="Driver" Type="Int32" Nullable="false" />
+          <Property Name="RoutePath" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="true" />
+          <Property Name="Simulate" Type="Boolean" Nullable="false" />
+          <Property Name="TimeOutConnect" Type="Int32" Nullable="false" />
+          <Property Name="TimeOutTransaction" Type="Int32" Nullable="false" />
+          <Property Name="AddressingType" Type="Int32" Nullable="false" />
+          <Property Name="MaxDataBytesRead" Type="Int32" Nullable="false" />
+          <Property Name="MaxDataBytesWrite" Type="Int32" Nullable="false" />
+          <Property Name="WordSwapFloat" Type="Boolean" Nullable="false" />
+          <Property Name="WordSwapLong" Type="Boolean" Nullable="false" />
+          <Property Name="WriteCoilFunction" Type="Int32" Nullable="false" />
+          <Property Name="WriteRegisterFunction" Type="Int32" Nullable="false" />
+          <Property Name="DeviceError" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ChannelError" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ComPort" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="PortSettings" Type="String" Nullable="false" MaxLength="26" FixedLength="false" Unicode="true" />
+          <Property Name="PortDtrControl" Type="Int32" Nullable="false" />
+          <Property Name="PortRtsControl" Type="Int32" Nullable="false" />
+          <Property Name="SerialProtoCol" Type="Int32" Nullable="false" />
+          <Property Name="SerialMsgDelay" Type="Int32" Nullable="false" />
+          <Property Name="LinkType" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Magna_LowellModelStoreContainer" CdmEntityContainer="Magna_LowellEntities">
+          <EntitySetMapping Name="LineRecords">
+            <EntityTypeMapping TypeName="Magna_LowellModel.LineRecord">
+              <MappingFragment StoreEntitySet="eqp_Lines">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Dept" ColumnName="Dept" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LineName" ColumnName="LineName" />
+                <ScalarProperty Name="MaxConcurrentLogins" ColumnName="MaxConcurrentLogins" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ErgonomicCategoryRecords">
+            <EntityTypeMapping TypeName="Magna_LowellModel.ErgonomicCategoryRecord">
+              <MappingFragment StoreEntitySet="Eqp_ErgonomicCategories">
+                <ScalarProperty Name="erg_Rest_Hrs" ColumnName="erg_Rest_Hrs" />
+                <ScalarProperty Name="erg_Span_Hrs" ColumnName="erg_Span_Hrs" />
+                <ScalarProperty Name="erg_Durration_Hrs" ColumnName="erg_Durration_Hrs" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ErgId" ColumnName="ErgId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CfgTagRecords">
+            <EntityTypeMapping TypeName="Magna_LowellModel.CfgTagRecord">
+              <MappingFragment StoreEntitySet="_Cfg_Tags">
+                <ScalarProperty Name="Folder" ColumnName="Folder" />
+                <ScalarProperty Name="RateChangeThreshold" ColumnName="RateChangeThreshold" />
+                <ScalarProperty Name="TagRole" ColumnName="TagRole" />
+                <ScalarProperty Name="SimType" ColumnName="SimType" />
+                <ScalarProperty Name="OptimizeReads" ColumnName="OptimizeReads" />
+                <ScalarProperty Name="StringLenth" ColumnName="StringLenth" />
+                <ScalarProperty Name="Elements" ColumnName="Elements" />
+                <ScalarProperty Name="HwDataType" ColumnName="HwDataType" />
+                <ScalarProperty Name="HwTagType" ColumnName="HwTagType" />
+                <ScalarProperty Name="HwTagName" ColumnName="HwTagName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TagName" ColumnName="TagName" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="TagId" ColumnName="TagId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PartResultRecords">
+            <EntityTypeMapping TypeName="Magna_LowellModel.PartResultRecord">
+              <MappingFragment StoreEntitySet="Eqp_PartResults">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LineId" ColumnName="LineId" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusEnumRecords">
+            <EntityTypeMapping TypeName="Magna_LowellModel.StatusEnumRecord">
+              <MappingFragment StoreEntitySet="Eqp_StateEnum">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="StationId" ColumnName="StationId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StationRecords">
+            <EntityTypeMapping TypeName="Magna_LowellModel.StationRecord">
+              <MappingFragment StoreEntitySet="eqp_Stations">
+                <ScalarProperty Name="ShopLogixFolderName" ColumnName="ShopLogixFolderName" />
+                <ScalarProperty Name="StatusTagId" ColumnName="StatusTagId" />
+                <ScalarProperty Name="DaysofConsideration" ColumnName="DaysofConsideration" />
+                <ScalarProperty Name="MinTrainingHours" ColumnName="MinTrainingHours" />
+                <ScalarProperty Name="ErgonomicId" ColumnName="ErgonomicId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LineId" ColumnName="LineId" />
+                <ScalarProperty Name="StationId" ColumnName="StationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupRecords">
+            <EntityTypeMapping TypeName="Magna_LowellModel.GroupRecord">
+              <MappingFragment StoreEntitySet="_Cfg_Groups">
+                <ScalarProperty Name="UpdateRate" ColumnName="UpdateRate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeviceRecords">
+            <EntityTypeMapping TypeName="Magna_LowellModel.DeviceRecord">
+              <MappingFragment StoreEntitySet="_Cfg_Devices">
+                <ScalarProperty Name="LinkType" ColumnName="LinkType" />
+                <ScalarProperty Name="SerialMsgDelay" ColumnName="SerialMsgDelay" />
+                <ScalarProperty Name="SerialProtoCol" ColumnName="SerialProtoCol" />
+                <ScalarProperty Name="PortRtsControl" ColumnName="PortRtsControl" />
+                <ScalarProperty Name="PortDtrControl" ColumnName="PortDtrControl" />
+                <ScalarProperty Name="PortSettings" ColumnName="PortSettings" />
+                <ScalarProperty Name="ComPort" ColumnName="ComPort" />
+                <ScalarProperty Name="ChannelError" ColumnName="ChannelError" />
+                <ScalarProperty Name="DeviceError" ColumnName="DeviceError" />
+                <ScalarProperty Name="WriteRegisterFunction" ColumnName="WriteRegisterFunction" />
+                <ScalarProperty Name="WriteCoilFunction" ColumnName="WriteCoilFunction" />
+                <ScalarProperty Name="WordSwapLong" ColumnName="WordSwapLong" />
+                <ScalarProperty Name="WordSwapFloat" ColumnName="WordSwapFloat" />
+                <ScalarProperty Name="MaxDataBytesWrite" ColumnName="MaxDataBytesWrite" />
+                <ScalarProperty Name="MaxDataBytesRead" ColumnName="MaxDataBytesRead" />
+                <ScalarProperty Name="AddressingType" ColumnName="AddressingType" />
+                <ScalarProperty Name="TimeOutTransaction" ColumnName="TimeOutTransaction" />
+                <ScalarProperty Name="TimeOutConnect" ColumnName="TimeOutConnect" />
+                <ScalarProperty Name="Simulate" ColumnName="Simulate" />
+                <ScalarProperty Name="RoutePath" ColumnName="RoutePath" />
+                <ScalarProperty Name="Driver" ColumnName="Driver" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="DeviceType" ColumnName="DeviceType" />
+                <ScalarProperty Name="DeviceName" ColumnName="DeviceName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+                <ScalarProperty Name="WorkCellId" ColumnName="WorkCellId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
