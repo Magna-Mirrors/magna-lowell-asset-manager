@@ -10,22 +10,6 @@ Namespace Views
     Public Class ViewCfg
         Implements IView(Of CfgSettings)
 
-        ReadOnly cfgFile As ICfgInterface
-        ReadOnly _tsk As ITaskManager
-        Public Sub New(icfg As ICfgInterface, tsk As ITaskManager)
-            InitializeComponent()
-            cfgFile = icfg
-            _tsk = tsk
-
-            Dim cfg = cfgFile.Cfg()
-            TxtUser.Text = cfg.UserName
-            TxtPwd.Text = cfg.PasswordDecrypted
-            TxtServer.Text = cfg.ServerInstance
-            TxtDb.Text = cfg.DataBase
-            ChkScannerLogin.Checked = cfg.ScannerLogin
-        End Sub
-
-
         Private ReadOnly Property IView_Name As String Implements IView.Title
             Get
                 Return "Settings"
@@ -42,25 +26,34 @@ Namespace Views
 
 
         Private Sub SqlTxtChange(sender As Object, e As EventArgs) Handles TxtServer.EditValueChanged, TxtDb.EditValueChanged, TxtUser.EditValueChanged, TxtPwd.EditValueChanged
-            Throw New NotImplementedException()
-            'TxtConnStr.Text = String.Format(DbInterface.ConnString, TxtServer.Text, TxtDb.Text, TxtUser.Text, String.Join("", Enumerable.Repeat("*", TxtPwd.Text.Length)))
+            TxtConnStr.Text = String.Format(DbFactory.connstr, TxtServer.Text, TxtDb.Text, TxtUser.Text, String.Join("", Enumerable.Repeat("*", TxtPwd.Text.Length)))
         End Sub
 
+        Private _data As CfgSettings
 
         Public Sub LoadView(data As CfgSettings) Implements IView(Of CfgSettings).LoadView
-            Throw New NotImplementedException()
+            If InvokeRequired Then
+                Invoke(Sub() LoadView(data))
+                Return
+            End If
+            _data = data
+            TxtUser.Text = _data.UserName
+            TxtPwd.Text = _data.PasswordDecrypted
+            TxtServer.Text = _data.ServerInstance
+            TxtDb.Text = _data.DataBase
+            ChkScannerLogin.Checked = _data.ScannerLogin
         End Sub
 
-        Private Function IView_Save() As Boolean Implements IView(Of CfgSettings).Save
-            Dim cfg As New CfgSettings()
-            With cfg
+        Public Function Save() As Boolean Implements IView(Of CfgSettings).Save
+            'Dim cfg As New CfgSettings()
+            With _data
                 .ServerInstance = TxtServer.Text
                 .DataBase = TxtDb.Text
                 .UserName = TxtUser.Text
                 .PasswordDecrypted = TxtPwd.Text
                 .ScannerLogin = ChkScannerLogin.Checked
             End With
-            Return cfgFile.WriteConfig(cfg)
+            Return True 'cfgFile.WriteConfig(cfg)
 
             '_tsk.StartNewTask(Sub(c As CancellationToken)
             '                      DirectCast(Me.ParentForm, Form1).CheckLogin()
@@ -68,38 +61,3 @@ Namespace Views
         End Function
     End Class
 End Namespace
-'Public ReadOnly Property View As XtraUserControl Implements IView.View
-'    Get
-'        Return Me
-'    End Get
-'End Property
-'Public ReadOnly Property UserLevl As Integer Implements IView.UserLevl
-'    Get
-'        Return 20
-'    End Get
-'End Property
-'Public Sub Save() Implements IView.Save
-'    Dim cfg As New CfgSettings()
-'    With cfg
-'        .ServerInstance = TxtServer.Text
-'        .DataBase = TxtDb.Text
-'        .UserName = TxtUser.Text
-'        .PasswordDecrypted = TxtPwd.Text
-'        .ScannerLogin = ChkScannerLogin.Checked
-'    End With
-'    cfgFile.WriteConfig(cfg)
-
-'    _tsk.StartNewTask(Sub(c As CancellationToken)
-'                          DirectCast(Me.ParentForm, Form1).CheckLogin()
-'                      End Sub)
-'End Sub
-'Public Sub Edit() Implements IView.Edit
-'End Sub
-
-'Public Sub Delete() Implements IView.Delete
-'    TxtUser.Text = String.Empty
-'    TxtPwd.Text = String.Empty
-'    TxtServer.Text = String.Empty
-'    TxtDb.Text = String.Empty
-'    ChkScannerLogin.Checked = False
-'End Sub

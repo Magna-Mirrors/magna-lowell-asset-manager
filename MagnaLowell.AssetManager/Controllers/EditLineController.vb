@@ -9,19 +9,26 @@ Public Class EditLineController
     Private view As EditLines
     Private ReadOnly _linerepo As LineViewModelRepository
 
+    Private DataContext As EditLinesViewModel
+
     Public Sub New(shell As IShell, linerepo As LineViewModelRepository)
         _shell = shell
         _linerepo = linerepo
     End Sub
-
-    Private DataContext As EditLinesViewModel
-
     Public Async Function Load() As Task Implements IController.Load
+        Dim sw = Stopwatch.StartNew()
         Dim lineT = _linerepo.GetAllAsync()
-
-        DataContext = Await lineT
+        Debug.Print($"Load 1: {sw.ElapsedMilliseconds} ms")
+        sw.Restart()
         view = _shell.ChangeView(Of EditLines)()
+        Debug.Print($"Load 2: {sw.ElapsedMilliseconds} ms")
+        sw.Restart()
+        DataContext = Await lineT
+        Debug.Print($"Load 3: {sw.ElapsedMilliseconds} ms")
+        sw.Restart()
         view.LoadView(DataContext)
+        Debug.Print($"Load 4: {sw.ElapsedMilliseconds} ms")
+        sw.Restart()
     End Function
 
     Public Async Function Save() As Task Implements IController.Save

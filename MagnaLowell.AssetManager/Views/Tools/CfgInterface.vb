@@ -6,134 +6,62 @@ Imports DevExpress.XtraEditors.Filtering
 Imports DevExpress.XtraEditors.Helpers
 
 Namespace Tools
-    Public Interface ICfgInterface
-        Event FileChanged As Action
-        'Function ReadConfig() As CfgSettings
-        Function WriteConfig(c As CfgSettings) As Boolean
-        Property Cfg() As CfgSettings
-        Sub CheckFolders()
-    End Interface
-    Public Class DbgCfgInterface
-        Implements ICfgInterface
-
-        Private Shared Property _cfg As CfgSettings
-
-        Public Property Cfg As CfgSettings Implements ICfgInterface.Cfg
-            Get
-                If _cfg Is Nothing Then
-                    '_cfg = New CfgSettings With {.DataBase = "Magna_Lowell",
-                    '                            .PasswordDecrypted = "yaaOt0883BhyOBskJe5t",
-                    '                            .UserName = "sa",
-                    '                            .ServerInstance = "fzse"}
-
-                    _cfg = New CfgSettings With {.DataBase = "MagnaLowell",
-                                              .PasswordDecrypted = "Winston",
-                                              .UserName = "sa",
-                                              .ServerInstance = "10.69.104.20"}
-                End If
-                Return _cfg
-            End Get
-            Set(value As CfgSettings)
-                _cfg = value
-                RaiseEvent FileChanged()
-            End Set
-        End Property
-
-        Public Event FileChanged As Action Implements ICfgInterface.FileChanged
-
-        Public Sub CheckFolders() Implements ICfgInterface.CheckFolders
-
-        End Sub
-
-        Public Function WriteConfig(c As CfgSettings) As Boolean Implements ICfgInterface.WriteConfig
-            _cfg = c
-            RaiseEvent FileChanged()
-            Return True
-        End Function
-    End Class
     Public Class CfgInterface
         Implements ICfgInterface
-
-        'Const Fz = "FeyenZylstra"
-        'Const AppFolder = "ConfigUtil"
         Const FileName = "config.xml"
-        Shared ReadOnly CfgFolder As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), My.Resources.DataFolder)
-        Shared ReadOnly Filepath As String = Path.Combine(CfgFolder, FileName)
-
-        ReadOnly _fsw As FileSystemWatcher
-        Public Event FileChanged As Action Implements ICfgInterface.FileChanged
-        Public Property Cfg As CfgSettings Implements ICfgInterface.Cfg
-
-        'Public Event FileChanged As Action Implements ICfgInterface.FileChanged
+        ReadOnly CfgFolder As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), My.Resources.DataFolder)
+        ReadOnly Filepath As String = Path.Combine(CfgFolder, FileName)
+        Private Shared _cfg As CfgSettings
 
         Public Sub New()
             CheckFolders()
-            _fsw = New FileSystemWatcher(CfgFolder) With {.EnableRaisingEvents = True, .Filter = FileName}
-            '"C:\ProgramData\Feyen-Zylstra\ConfigUtil")
-            AddHandler _fsw.Changed, AddressOf OnChanged
-            AddHandler _fsw.Deleted, AddressOf OnDeleted
-
-            Dim tmp = ReadConfig()
-            If tmp.NoErrors Then
-                Cfg = tmp.Result
+            If _cfg Is Nothing Then
+                _cfg = ReadCfg()
             End If
         End Sub
-
-        Private Sub OnDeleted(sender As Object, e As FileSystemEventArgs)
-            CheckFolders()
-        End Sub
-
-        Private Sub OnChanged(sender As Object, e As FileSystemEventArgs)
-            Debug.Print("File changed")
-            Dim tmp = ReadConfig()
-            If tmp.NoErrors Then
-                Cfg = tmp.Result
+        Public Function ReadCfg() As CfgSettings Implements ICfgInterface.ReadCfg
+            If _cfg IsNot Nothing Then
+                Return _cfg
             End If
-            RaiseEvent FileChanged()
-        End Sub
 
-        Private Function WriteFile(c As CfgSettings) As Boolean
-            Try
-                Using writer As New StreamWriter(Filepath)
-                    Dim x As New XmlSerializer(GetType(CfgSettings))
-                    x.Serialize(writer, c)
-                End Using
-                Return True
-            Catch ex As Exception
-                Return False
-            End Try
-        End Function
-        Private Function ReadConfig() As DbResult(Of CfgSettings) ' Implements ICfgInterface.ReadConfig
             CheckFolders()
             Using fs As New FileStream(Filepath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)
-                Using writer As New StreamReader(fs)
+                Using reader As New StreamReader(fs)
                     Dim x As New XmlSerializer(GetType(CfgSettings))
-                    Try
-                        Return New DbResult(Of CfgSettings)(TryCast(x.Deserialize(writer), CfgSettings))
-                    Catch ex As Exception
-                        Return New DbResult(Of CfgSettings)(ex)
-                    End Try
+                    _cfg = DirectCast(x.Deserialize(reader), CfgSettings)
                 End Using
             End Using
+
+            If Not String.IsNullOrEmpty(_cfg.SetPassword) Then
+                _cfg.PasswordDecrypted = _cfg.SetPassword
+                _cfg.SetPassword = String.Empty
+                WriteConfig(_cfg)
+            End If
+            Return _cfg
         End Function
+
         Public Function WriteConfig(c As CfgSettings) As Boolean Implements ICfgInterface.WriteConfig
-            Try
-                CheckFolders()
-                Return WriteFile(c)
-            Catch ex As Exception
-                Return False
-            End Try
+            CheckFolders()
+            WriteFile(c, Filepath)
+            _cfg = c
+            Return True
         End Function
-        Public Sub CheckFolders() Implements ICfgInterface.CheckFolders
-            If Not My.Computer.FileSystem.DirectoryExists(Path.GetDirectoryName(CfgFolder)) Then
-                My.Computer.FileSystem.CreateDirectory(Path.GetDirectoryName(CfgFolder))
+
+        Private Sub CheckFolders()
+            If Not Directory.Exists(CfgFolder) Then
+                Directory.CreateDirectory(CfgFolder)
             End If
-            If Not My.Computer.FileSystem.DirectoryExists(CfgFolder) Then
-                My.Computer.FileSystem.CreateDirectory(CfgFolder)
-            End If
-            If Not My.Computer.FileSystem.FileExists(Filepath) Then
-                WriteFile(New CfgSettings())
+            If Not File.Exists(Filepath) Then
+                WriteFile(New CfgSettings(), Filepath)
             End If
         End Sub
+
+        Private Shared Function WriteFile(c As CfgSettings, path As String) As Boolean
+            Using writer As New StreamWriter(path)
+                Dim x As New XmlSerializer(GetType(CfgSettings))
+                x.Serialize(writer, c)
+            End Using
+            Return True
+        End Function
     End Class
 End Namespace

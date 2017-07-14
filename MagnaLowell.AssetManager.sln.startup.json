@@ -42,11 +42,16 @@
             }
         }
     */
- 
+
   "MultiProjectConfigurations": {
-    "D": {
+    "Debug": {
       "Projects": {
         "MagnaLowell.AssetManager": { "CommandLineArguments": "debug" }
+      }
+    },
+    "Release": {
+      "Projects": {
+        "MagnaLowell.AssetManager": { "CommandLineArguments": "" }
       }
     }
   }

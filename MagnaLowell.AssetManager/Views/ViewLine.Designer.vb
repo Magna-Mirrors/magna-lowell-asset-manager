@@ -62,7 +62,7 @@ Partial Class ViewLine
         Me.LayoutControl1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControl1.Name = "LayoutControl1"
         Me.LayoutControl1.Root = Me.LayoutControlGroup1
-        Me.LayoutControl1.Size = New System.Drawing.Size(379, 296)
+        Me.LayoutControl1.Size = New System.Drawing.Size(341, 155)
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
@@ -70,7 +70,7 @@ Partial Class ViewLine
         '
         Me.TxtDescription.Location = New System.Drawing.Point(129, 108)
         Me.TxtDescription.Name = "TxtDescription"
-        Me.TxtDescription.Size = New System.Drawing.Size(238, 20)
+        Me.TxtDescription.Size = New System.Drawing.Size(200, 20)
         Me.TxtDescription.StyleController = Me.LayoutControl1
         Me.TxtDescription.TabIndex = 8
         '
@@ -78,7 +78,7 @@ Partial Class ViewLine
         '
         Me.TxtDept.Location = New System.Drawing.Point(129, 84)
         Me.TxtDept.Name = "TxtDept"
-        Me.TxtDept.Size = New System.Drawing.Size(238, 20)
+        Me.TxtDept.Size = New System.Drawing.Size(200, 20)
         Me.TxtDept.StyleController = Me.LayoutControl1
         Me.TxtDept.TabIndex = 7
         '
@@ -91,7 +91,7 @@ Partial Class ViewLine
         Me.NudMaxLogins.Properties.IsFloatValue = False
         Me.NudMaxLogins.Properties.Mask.EditMask = "N00"
         Me.NudMaxLogins.Properties.MaxValue = New Decimal(New Integer() {1000, 0, 0, 0})
-        Me.NudMaxLogins.Size = New System.Drawing.Size(238, 20)
+        Me.NudMaxLogins.Size = New System.Drawing.Size(200, 20)
         Me.NudMaxLogins.StyleController = Me.LayoutControl1
         Me.NudMaxLogins.TabIndex = 6
         '
@@ -99,7 +99,7 @@ Partial Class ViewLine
         '
         Me.TxtName.Location = New System.Drawing.Point(129, 36)
         Me.TxtName.Name = "TxtName"
-        Me.TxtName.Size = New System.Drawing.Size(238, 20)
+        Me.TxtName.Size = New System.Drawing.Size(200, 20)
         Me.TxtName.StyleController = Me.LayoutControl1
         Me.TxtName.TabIndex = 5
         '
@@ -108,7 +108,7 @@ Partial Class ViewLine
         Me.TxtId.Location = New System.Drawing.Point(129, 12)
         Me.TxtId.Name = "TxtId"
         Me.TxtId.Properties.ReadOnly = True
-        Me.TxtId.Size = New System.Drawing.Size(238, 20)
+        Me.TxtId.Size = New System.Drawing.Size(200, 20)
         Me.TxtId.StyleController = Me.LayoutControl1
         Me.TxtId.TabIndex = 4
         '
@@ -119,7 +119,7 @@ Partial Class ViewLine
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.EmptySpaceItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem5})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "LayoutControlGroup1"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(379, 296)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(341, 155)
         Me.LayoutControlGroup1.TextVisible = False
         '
         'LayoutControlItem1
@@ -127,7 +127,7 @@ Partial Class ViewLine
         Me.LayoutControlItem1.Control = Me.TxtId
         Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(359, 24)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(321, 24)
         Me.LayoutControlItem1.Text = "Id:"
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(114, 13)
         '
@@ -144,7 +144,7 @@ Partial Class ViewLine
         Me.LayoutControlItem2.Control = Me.TxtName
         Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 24)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(359, 24)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(321, 24)
         Me.LayoutControlItem2.Text = "Name:"
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(114, 13)
         '
@@ -153,7 +153,7 @@ Partial Class ViewLine
         Me.LayoutControlItem3.Control = Me.NudMaxLogins
         Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 48)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(359, 24)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(321, 24)
         Me.LayoutControlItem3.Text = "Max Concurrent Logins:"
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(114, 13)
         '
@@ -162,7 +162,7 @@ Partial Class ViewLine
         Me.LayoutControlItem4.Control = Me.TxtDept
         Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 72)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(359, 24)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(321, 24)
         Me.LayoutControlItem4.Text = "Department:"
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(114, 13)
         '
@@ -171,7 +171,7 @@ Partial Class ViewLine
         Me.LayoutControlItem5.Control = Me.TxtDescription
         Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 96)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(359, 24)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(321, 24)
         Me.LayoutControlItem5.Text = "Description:"
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(114, 13)
         '
@@ -179,9 +179,10 @@ Partial Class ViewLine
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSize = True
         Me.Controls.Add(Me.LayoutControl1)
         Me.Name = "ViewLine"
-        Me.Size = New System.Drawing.Size(379, 296)
+        Me.Size = New System.Drawing.Size(341, 155)
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
         CType(Me.TxtDescription.Properties, System.ComponentModel.ISupportInitialize).EndInit()

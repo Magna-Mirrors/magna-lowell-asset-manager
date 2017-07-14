@@ -124,7 +124,7 @@
         Me.BarManager1.DockControls.Add(Me.barDockControlRight)
         Me.BarManager1.Form = Me
         Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BarToolbarsListItem1, Me.BarToolbarsListItem2, Me.BarSubItem1, Me.BarSubItem2, Me.BtnEditItems, Me.BtnEditStationEnums, Me.BarBtnSave, Me.BtnSettings, Me.BtnLogOut, Me.LblUser, Me.LblUserLevel, Me.BtnEditAssetResults, Me.BtnEdit, Me.BtnDelete, Me.BtnEditLines})
-        Me.BarManager1.MaxItemId = 20
+        Me.BarManager1.MaxItemId = 21
         '
         'Bar1
         '
@@ -173,7 +173,6 @@
         Me.BtnSettings.Caption = "Settings"
         Me.BtnSettings.Id = 8
         Me.BtnSettings.Name = "BtnSettings"
-        Me.BtnSettings.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
         '
         'BtnEditLines
         '
@@ -194,6 +193,7 @@
         Me.BtnEdit.Id = 16
         Me.BtnEdit.ImageOptions.Image = Global.MagnaLowell.AssetManager.My.Resources.Resources.database_edit
         Me.BtnEdit.Name = "BtnEdit"
+        Me.BtnEdit.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
         '
         'BtnDelete
         '

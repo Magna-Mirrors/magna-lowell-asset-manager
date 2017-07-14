@@ -8,10 +8,10 @@ Public Class DbFactory
 
 
     Const str = "metadata=res://*/Models.Db.MagnaLowell.csdl|res://*/Models.Db.MagnaLowell.ssdl|res://*/Models.Db.MagnaLowell.msl;provider=System.Data.SqlClient;provider connection string=""{0}"""
-    Const connstr = "data source={0};initial catalog={1};persist security info=True;user id={2};password={3};MultipleActiveResultSets=True;"
+    Public Const connstr = "data source={0};initial catalog={1};persist security info=True;user id={2};password={3};MultipleActiveResultSets=True;"
 
     Public Function GetDbInstance() As Magna_LowellEntities
-        Dim cfg = _cfgMgr.Cfg
+        Dim cfg = _cfgMgr.ReadCfg
         Dim baseConn = String.Format(connstr, cfg.ServerInstance, cfg.DataBase, cfg.UserName, cfg.PasswordDecrypted)
         Dim db = New Magna_LowellEntities(String.Format(str, baseConn))
         Return db

@@ -39,7 +39,9 @@ Public Class LineViewModelRepository
         Dim tags = _tagRepo.GetAll()
         Dim groups = _groupRepo.GetAll()
         Dim devices = _deviceRepo.GetAll()
-
+        If tags.Any(Function(x) x.GroupId = 0) Then
+            Throw New Exception()
+        End If
         Return New EditLinesViewModel(lineT, partResT, stationsT, ergoT, tags, devices, groups)
     End Function
 

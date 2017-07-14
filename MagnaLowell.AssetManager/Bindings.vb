@@ -12,6 +12,7 @@ Namespace Interfaces
             Else
                 Bind(Of ICfgInterface).To(Of CfgInterface)()
             End If
+            Bind(Of ControllerManager).ToSelf().InSingletonScope()
             Bind(Of EditLineController).ToSelf()
             Bind(GetType(ITaskManager)).To(GetType(TaskManager)).InSingletonScope()
 

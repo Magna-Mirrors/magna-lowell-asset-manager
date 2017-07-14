@@ -66,8 +66,3 @@ Public MustInherit Class ReadonlyRepository(Of TModel As {Class, New}, TRecord A
     Protected MustOverride Function MapOutModel(ByVal inRecord As TRecord, ByVal outModel As TModel) As TModel
 
 End Class
-
-Public Interface IReadonlyRepository(Of TModel As {Class})
-    Function GetAll() As IEnumerable(Of TModel)
-    Function GetAllAsync() As Task(Of IEnumerable(Of TModel))
-End Interface

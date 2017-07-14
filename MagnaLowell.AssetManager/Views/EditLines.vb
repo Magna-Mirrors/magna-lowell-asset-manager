@@ -17,6 +17,15 @@ Public Class EditLines
     End Property
 
     Private _data As EditLinesViewModel
+    Dim currentView As IView
+    Private lastSelectedTag As Object
+    Private ReadOnly _ctrlManager As ControllerManager
+
+    Public Sub New(ctrlManager As ControllerManager)
+        InitializeComponent()
+        _ctrlManager = ctrlManager
+    End Sub
+
     Public Sub LoadView(data As EditLinesViewModel) Implements IView(Of EditLinesViewModel).LoadView
         _data = data
         TreeView1.Nodes.Clear()
@@ -34,14 +43,13 @@ Public Class EditLines
     End Sub
 
     Public Function Save() As Boolean Implements IView(Of EditLinesViewModel).Save
+        If dilgSave Then
+            dilgSave = False
+            Return True
+        End If
+
         Return If(currentView?.Save(), False)
     End Function
-
-
-
-
-    Private lastSelectedTag As Object
-
     Private Sub TreeView1_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TreeView1.AfterSelect
         If e.Node IsNot Nothing AndAlso e.Node.Tag IsNot Nothing Then
             If TryCast(e.Node.Tag, LineViewModel) IsNot Nothing Then
@@ -65,6 +73,23 @@ Public Class EditLines
         currentView.Control.AutoSize = True
         currentView.Control.AutoSizeMode = AutoSizeMode.GrowAndShrink
     End Sub
+    Private Sub ClearView()
+        currentView = Nothing
+        Panel1.Controls.Clear()
+    End Sub
 
-    Dim currentView As IView
+    Dim dilgSave As Boolean
+    Private Async Sub AddLineToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddLineToolStripMenuItem.Click
+        Dim dilg = New DialogCreateLine()
+        Dim line = New Line()
+        Dim lvm = New LineViewModel(line, _data.Lines)
+        dilg.LoadView(lvm)
+        If dilg.ShowDialog(Me) = DialogResult.OK AndAlso dilg.Save() Then
+            line.EditState = EditState.Create
+            _data.Lines.Add(line)
+            dilgSave = True
+            Await _ctrlManager.Controller.Save()
+
+        End If
+    End Sub
 End Class

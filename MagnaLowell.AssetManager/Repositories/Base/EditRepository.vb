@@ -120,6 +120,7 @@ Public MustInherit Class EditRepository(Of TModel As {EditModel, New}, TRecord A
         'End Using
 
         'Dim results
+
         Update(model.Where(Function(x) x.EditState = EditState.Edit))
         Add(model.Where(Function(x) x.EditState = EditState.Create))
         'If found Then

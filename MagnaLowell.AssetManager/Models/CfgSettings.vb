@@ -7,13 +7,15 @@ Namespace Models
         Private ReadOnly iv As Byte() = {211, 249, 64, 194, 22, 205, 110, 252, 253, 173, 112, 171, 217, 136, 15, 178, 115, 9, 84, 245, 215, 173, 84, 165, 15, 36, 69, 166, 110, 123, 170, 137}
 
         Public Sub New()
-            ServerInstance = String.Empty
-            DataBase = String.Empty
-            UserName = String.Empty
+            SetPassword = "Sql Password"
+            ServerInstance = "Server Address"
+            DataBase = "Db Name"
+            UserName = "Db UserName"
             PasswordEncrypted = String.Empty
             ScannerLogin = False
         End Sub
 
+        Public Property SetPassword() As String
         Public Property ServerInstance() As String
         Public Property DataBase() As String
         Public Property UserName() As String
