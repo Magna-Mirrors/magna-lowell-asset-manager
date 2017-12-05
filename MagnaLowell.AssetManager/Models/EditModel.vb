@@ -25,3 +25,9 @@ Public Enum EditState
     Edit
     Delete
 End Enum
+
+Public Enum SchedulerMode
+    None = 0
+    Wcf = 1
+    Sql = 2
+End Enum

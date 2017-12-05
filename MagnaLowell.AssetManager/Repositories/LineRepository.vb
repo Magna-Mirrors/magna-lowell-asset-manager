@@ -17,6 +17,13 @@ Public Class LineRepository
         outRecord.MaxConcurrentLogins = inModel.MaxConcurrentLogins
         outRecord.Dept = inModel.Dept
         outRecord.Description = inModel.Description
+        outRecord.WcfFileName = inModel.WcfFileName
+        outRecord.SelectCmd = inModel.SelectCommand
+        outRecord.ScheduleFolder = inModel.ScheduleFolder
+        outRecord.SchedulerMethod = inModel.SchedulerMethod
+        outRecord.WorkBufferMinutes = inModel.WorkBufferMinutes
+        outRecord.ReOrderPercentThreshold = inModel.ReOrderPercentThreshold
+        outRecord.Workcell = inModel.Workcell
         Return outRecord
     End Function
 
@@ -27,6 +34,13 @@ Public Class LineRepository
         outModel.Dept = inRecord.Dept
         outModel.Description = inRecord.Description
         outModel.EditState = EditState.None
+        outModel.WcfFileName = inRecord.WcfFileName
+        outModel.SelectCommand = inRecord.SelectCmd
+        outModel.ScheduleFolder = inRecord.ScheduleFolder
+        outModel.SchedulerMethod = CType(inRecord.SchedulerMethod, SchedulerMode)
+        outModel.WorkBufferMinutes = inRecord.WorkBufferMinutes
+        outModel.ReOrderPercentThreshold = inRecord.ReOrderPercentThreshold
+        outModel.Workcell = inRecord.Workcell
         Return outModel
     End Function
 End Class

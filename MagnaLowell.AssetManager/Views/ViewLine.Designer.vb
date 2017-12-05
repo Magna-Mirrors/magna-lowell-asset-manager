@@ -62,7 +62,7 @@ Partial Class ViewLine
         Me.LayoutControl1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControl1.Name = "LayoutControl1"
         Me.LayoutControl1.Root = Me.LayoutControlGroup1
-        Me.LayoutControl1.Size = New System.Drawing.Size(341, 155)
+        Me.LayoutControl1.Size = New System.Drawing.Size(341, 283)
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
@@ -119,7 +119,7 @@ Partial Class ViewLine
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.EmptySpaceItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem5})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "LayoutControlGroup1"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(341, 155)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(341, 283)
         Me.LayoutControlGroup1.TextVisible = False
         '
         'LayoutControlItem1
@@ -136,7 +136,7 @@ Partial Class ViewLine
         Me.EmptySpaceItem1.AllowHotTrack = False
         Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 120)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(359, 156)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(321, 143)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem2
@@ -182,7 +182,7 @@ Partial Class ViewLine
         Me.AutoSize = True
         Me.Controls.Add(Me.LayoutControl1)
         Me.Name = "ViewLine"
-        Me.Size = New System.Drawing.Size(341, 155)
+        Me.Size = New System.Drawing.Size(341, 283)
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
         CType(Me.TxtDescription.Properties, System.ComponentModel.ISupportInitialize).EndInit()

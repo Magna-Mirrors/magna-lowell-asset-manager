@@ -70,6 +70,15 @@ Public Class Line
     '        _description = value
     '    End Set
     'End Property
+    Public Property WcfFileName As String
+
+    Public Property SelectCommand As String
+    Public Property ScheduleFolder As String
+    Public Property SchedulerMethod As SchedulerMode
+    Public Property WorkBufferMinutes As Decimal
+    Public Property ReOrderPercentThreshold As Decimal
+    Public Property Workcell As String
+
 
     'Private _id As Integer
     'Private _lineName As String

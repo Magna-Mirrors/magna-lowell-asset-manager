@@ -20,6 +20,9 @@ Partial Public Class StationRecord
     Public Property DaysofConsideration As Integer
     Public Property StatusTagId As Nullable(Of Integer)
     Public Property ShopLogixFolderName As String
+    Public Property StationName As String
+    Public Property StationDefinition As String
+    Public Property StateTagId As Nullable(Of Integer)
 
     Public Overridable Property Eqp_ErgonomicCategories As ErgonomicCategoryRecord
     Public Overridable Property eqp_Lines As LineRecord

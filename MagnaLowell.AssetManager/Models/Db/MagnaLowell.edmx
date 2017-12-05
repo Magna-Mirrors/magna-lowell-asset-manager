@@ -82,25 +82,32 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="int" />
           <Property Name="LineName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Dept" Type="nvarchar" MaxLength="26" />
-          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LineDefinition" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="MaxConcurrentLogins" Type="int" Nullable="false" />
+          <Property Name="WcfFileName" Type="nvarchar" MaxLength="120" Nullable="false" />
+          <Property Name="SelectCmd" Type="nvarchar" MaxLength="120" Nullable="false" />
+          <Property Name="ScheduleFolder" Type="nvarchar" MaxLength="120" Nullable="false" />
+          <Property Name="SchedulerMethod" Type="int" Nullable="false" />
+          <Property Name="WorkBufferMinutes" Type="decimal" Precision="6" Scale="2" Nullable="false" />
+          <Property Name="ReOrderPercentThreshold" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+          <Property Name="Workcell" Type="nvarchar" MaxLength="8" Nullable="false" />
         </EntityType>
         <EntityType Name="Eqp_PartResults">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="LineId" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Code" Type="int" Nullable="false" />
           <Property Name="LineId" Type="int" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Eqp_StateEnum">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="StationId" />
+            <PropertyRef Name="State" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="StationId" Type="int" Nullable="false" />
           <Property Name="State" Type="int" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="82" Nullable="false" />
@@ -111,12 +118,12 @@
           </Key>
           <Property Name="StationId" Type="int" Nullable="false" />
           <Property Name="LineId" Type="int" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StationName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StationDefinition" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ErgonomicId" Type="int" Nullable="false" />
           <Property Name="MinTrainingHours" Type="int" Nullable="false" />
           <Property Name="DaysofConsideration" Type="int" Nullable="false" />
-          <Property Name="StatusTagId" Type="int" />
+          <Property Name="StateTagId" Type="int" />
           <Property Name="ShopLogixFolderName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_Line_PartResults">
@@ -208,6 +215,15 @@
           <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Eqp_PartResults" Relationship="Magna_LowellModel.FK_Line_PartResults" FromRole="LineRecord" ToRole="Eqp_PartResults" />
           <NavigationProperty Name="eqp_Stations" Relationship="Magna_LowellModel.FK_Stations_Lines" FromRole="LineRecord" ToRole="eqp_Stations" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="LineDefinition" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WcfFileName" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="SelectCmd" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="ScheduleFolder" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="SchedulerMethod" Type="Int32" Nullable="false" />
+          <Property Name="WorkBufferMinutes" Type="Decimal" Nullable="false" Precision="6" Scale="2" />
+          <Property Name="ReOrderPercentThreshold" Type="Decimal" Nullable="false" Precision="4" Scale="2" />
+          <Property Name="Workcell" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="Magna_LowellEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="LineRecords" EntityType="Magna_LowellModel.LineRecord" />
@@ -313,6 +329,9 @@
           <NavigationProperty Name="Eqp_ErgonomicCategories" Relationship="Magna_LowellModel.FK_sdy_Stations_sdy_ErgonomicCategories" FromRole="eqp_Stations" ToRole="Eqp_ErgonomicCategories" />
           <NavigationProperty Name="eqp_Lines" Relationship="Magna_LowellModel.FK_Stations_Lines" FromRole="eqp_Stations" ToRole="LineRecord" />
           <NavigationProperty Name="Eqp_StateEnum" Relationship="Magna_LowellModel.FK_Station_StateEnum" FromRole="eqp_Stations" ToRole="StatusEnumRecord" />
+          <Property Name="StationName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StationDefinition" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StateTagId" Type="Int32" />
         </EntityType>
         <Association Name="FK_sdy_Stations_sdy_ErgonomicCategories">
           <End Type="Magna_LowellModel.ErgonomicCategoryRecord" Role="Eqp_ErgonomicCategories" Multiplicity="1" />
@@ -402,8 +421,15 @@
           <EntitySetMapping Name="LineRecords">
             <EntityTypeMapping TypeName="Magna_LowellModel.LineRecord">
               <MappingFragment StoreEntitySet="eqp_Lines">
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Dept" ColumnName="Dept" />
+                <ScalarProperty Name="Workcell" ColumnName="Workcell" />
+                <ScalarProperty Name="ReOrderPercentThreshold" ColumnName="ReOrderPercentThreshold" />
+                <ScalarProperty Name="WorkBufferMinutes" ColumnName="WorkBufferMinutes" />
+                <ScalarProperty Name="SchedulerMethod" ColumnName="SchedulerMethod" />
+                <ScalarProperty Name="ScheduleFolder" ColumnName="ScheduleFolder" />
+                <ScalarProperty Name="SelectCmd" ColumnName="SelectCmd" />
+                <ScalarProperty Name="WcfFileName" ColumnName="WcfFileName" />
+                <ScalarProperty Name="LineDefinition" ColumnName="LineDefinition" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="LineName" ColumnName="LineName" />
                 <ScalarProperty Name="MaxConcurrentLogins" ColumnName="MaxConcurrentLogins" />
@@ -447,7 +473,6 @@
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="LineId" ColumnName="LineId" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -457,20 +482,19 @@
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="StationId" ColumnName="StationId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="StationRecords">
             <EntityTypeMapping TypeName="Magna_LowellModel.StationRecord">
               <MappingFragment StoreEntitySet="eqp_Stations">
+                <ScalarProperty Name="StateTagId" ColumnName="StateTagId" />
+                <ScalarProperty Name="StationDefinition" ColumnName="StationDefinition" />
+                <ScalarProperty Name="StationName" ColumnName="StationName" />
                 <ScalarProperty Name="ShopLogixFolderName" ColumnName="ShopLogixFolderName" />
-                <ScalarProperty Name="StatusTagId" ColumnName="StatusTagId" />
                 <ScalarProperty Name="DaysofConsideration" ColumnName="DaysofConsideration" />
                 <ScalarProperty Name="MinTrainingHours" ColumnName="MinTrainingHours" />
                 <ScalarProperty Name="ErgonomicId" ColumnName="ErgonomicId" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="LineId" ColumnName="LineId" />
                 <ScalarProperty Name="StationId" ColumnName="StationId" />
               </MappingFragment>
