@@ -15,7 +15,7 @@ Public Class Line
         item.Id = Id
         item.LineName = LineName
         item.MaxConcurrentLogins = MaxConcurrentLogins
-        item.Dept = Dept
+        item.name = name
         item.Description = Description
         item.EditState = EditState
     End Sub
@@ -52,7 +52,7 @@ Public Class Line
     '        _maxConcurrentLogins = value
     '    End Set
     'End Property
-    Public Property Dept As String
+    Public Property name As String
     '    Get
     '        Return _dept
     '    End Get

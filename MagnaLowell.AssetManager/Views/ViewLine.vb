@@ -29,7 +29,7 @@ Public Class ViewLine
         TxtName.Text = _data.SelectedLine.LineName
         NudMaxLogins.Value = _data.SelectedLine.MaxConcurrentLogins
         TxtDescription.Text = _data.SelectedLine.Description
-        TxtDept.Text = _data.SelectedLine.Dept
+        TxtDept.Text = _data.SelectedLine.name
 
     End Sub
 
@@ -38,7 +38,7 @@ Public Class ViewLine
             _data.SelectedLine.LineName = TxtName.Text
             _data.SelectedLine.MaxConcurrentLogins = CInt(NudMaxLogins.Value)
             _data.SelectedLine.Description = TxtDescription.Text
-            _data.SelectedLine.Dept = TxtDept.Text
+            _data.SelectedLine.name = TxtDept.Text
             Return True
         End If
         Return False

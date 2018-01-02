@@ -1,7 +1,7 @@
 ﻿Imports MagnaLowell.AssetManager
 
 Public Class LineRepository
-    Inherits EditRepository(Of Line, LineRecord)
+    Inherits EditRepository(Of Line, eqp_Lines)
 
     Public Sub New(dbFactory As DbFactory)
         MyBase.New(dbFactory)
@@ -11,12 +11,12 @@ Public Class LineRepository
         Return New Object() {model.Id}
     End Function
 
-    Protected Overrides Function MapOutRecord(inModel As Line, outRecord As LineRecord) As LineRecord
+    Protected Overrides Function MapOutRecord(inModel As Line, outRecord As eqp_Lines) As eqp_Lines
         outRecord.Id = inModel.Id
         outRecord.LineName = inModel.LineName
         outRecord.MaxConcurrentLogins = inModel.MaxConcurrentLogins
-        outRecord.Dept = inModel.Dept
-        outRecord.Description = inModel.Description
+        outRecord.LineName = inModel.name
+        outRecord.LineDefinition = inModel.Description
         outRecord.WcfFileName = inModel.WcfFileName
         outRecord.SelectCmd = inModel.SelectCommand
         outRecord.ScheduleFolder = inModel.ScheduleFolder
@@ -27,12 +27,12 @@ Public Class LineRepository
         Return outRecord
     End Function
 
-    Protected Overrides Function MapOutModel(inRecord As LineRecord, outModel As Line) As Line
+    Protected Overrides Function MapOutModel(inRecord As eqp_Lines, outModel As Line) As Line
         outModel.Id = inRecord.Id
         outModel.LineName = inRecord.LineName
         outModel.MaxConcurrentLogins = inRecord.MaxConcurrentLogins
-        outModel.Dept = inRecord.Dept
-        outModel.Description = inRecord.Description
+        outModel.name = inRecord.LineName
+        outModel.Description = inRecord.LineDefinition
         outModel.EditState = EditState.None
         outModel.WcfFileName = inRecord.WcfFileName
         outModel.SelectCommand = inRecord.SelectCmd

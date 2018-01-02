@@ -10,14 +10,12 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class LineRecord
+Partial Public Class eqp_Lines
     Public Property Id As Integer
-    Public Property LineName As String
-    Public Property MaxConcurrentLogins As Integer
-    Public Property Dept As String
-    Public Property Description As String
     Public Property CustomerId As Nullable(Of Integer)
+    Public Property LineName As String
     Public Property LineDefinition As String
+    Public Property MaxConcurrentLogins As Integer
     Public Property WcfFileName As String
     Public Property SelectCmd As String
     Public Property ScheduleFolder As String
@@ -26,7 +24,7 @@ Partial Public Class LineRecord
     Public Property ReOrderPercentThreshold As Decimal
     Public Property Workcell As String
 
-    Public Overridable Property Eqp_PartResults As ICollection(Of PartResultRecord) = New HashSet(Of PartResultRecord)
-    Public Overridable Property eqp_Stations As ICollection(Of StationRecord) = New HashSet(Of StationRecord)
+    Public Overridable Property Eqp_PartResults As ICollection(Of Eqp_PartResults) = New HashSet(Of Eqp_PartResults)
+    Public Overridable Property eqp_Stations As ICollection(Of eqp_Stations) = New HashSet(Of eqp_Stations)
 
 End Class

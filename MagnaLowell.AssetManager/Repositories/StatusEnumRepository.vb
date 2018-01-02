@@ -1,7 +1,7 @@
 ﻿Imports MagnaLowell.AssetManager
 
 Public Class StatusEnumRepository
-    Inherits EditRepository(Of StatusEnum, StatusEnumRecord)
+    Inherits EditRepository(Of StatusEnum, Eqp_StateEnum)
 
     Public Sub New(dbFactory As DbFactory)
         MyBase.New(dbFactory)
@@ -11,16 +11,16 @@ Public Class StatusEnumRepository
         Return New Object() {model.StationId, model.State}
     End Function
 
-    Protected Overrides Function MapOutRecord(inModel As StatusEnum, outRecord As StatusEnumRecord) As StatusEnumRecord
-        outRecord.Id = inModel.Id
+    Protected Overrides Function MapOutRecord(inModel As StatusEnum, outRecord As Eqp_StateEnum) As Eqp_StateEnum
+
         outRecord.Description = inModel.Description
         outRecord.State = inModel.State
         outRecord.StationId = inModel.StationId
         Return outRecord
     End Function
 
-    Protected Overrides Function MapOutModel(inRecord As StatusEnumRecord, outModel As StatusEnum) As StatusEnum
-        outModel.Id = inRecord.Id
+    Protected Overrides Function MapOutModel(inRecord As Eqp_StateEnum, outModel As StatusEnum) As StatusEnum
+
         outModel.Description = inRecord.Description
         outModel.State = inRecord.State
         outModel.StationId = inRecord.StationId

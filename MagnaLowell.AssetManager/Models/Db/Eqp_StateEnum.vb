@@ -10,12 +10,11 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class StatusEnumRecord
-    Public Property Id As Integer
+Partial Public Class Eqp_StateEnum
     Public Property StationId As Integer
     Public Property State As Integer
     Public Property Description As String
 
-    Public Overridable Property eqp_Stations As StationRecord
+    Public Overridable Property eqp_Stations As eqp_Stations
 
 End Class

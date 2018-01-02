@@ -23,17 +23,17 @@ Partial Class EditLines
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TreeView1 = New System.Windows.Forms.TreeView()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.AddLineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.AddLineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
+        Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -58,10 +58,23 @@ Partial Class EditLines
         'TreeView1
         '
         Me.TreeView1.ContextMenuStrip = Me.ContextMenuStrip1
+        Me.TreeView1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TreeView1.Location = New System.Drawing.Point(12, 12)
         Me.TreeView1.Name = "TreeView1"
         Me.TreeView1.Size = New System.Drawing.Size(174, 525)
         Me.TreeView1.TabIndex = 4
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddLineToolStripMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(116, 26)
+        '
+        'AddLineToolStripMenuItem
+        '
+        Me.AddLineToolStripMenuItem.Name = "AddLineToolStripMenuItem"
+        Me.AddLineToolStripMenuItem.Size = New System.Drawing.Size(115, 22)
+        Me.AddLineToolStripMenuItem.Text = "Add Line"
         '
         'LayoutControlGroup1
         '
@@ -91,18 +104,6 @@ Partial Class EditLines
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem2.TextVisible = False
         '
-        'ContextMenuStrip1
-        '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddLineToolStripMenuItem})
-        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(122, 26)
-        '
-        'AddLineToolStripMenuItem
-        '
-        Me.AddLineToolStripMenuItem.Name = "AddLineToolStripMenuItem"
-        Me.AddLineToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.AddLineToolStripMenuItem.Text = "Add Line"
-        '
         'EditLines
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -112,10 +113,10 @@ Partial Class EditLines
         Me.Size = New System.Drawing.Size(680, 549)
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
+        Me.ContextMenuStrip1.ResumeLayout(False)
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub

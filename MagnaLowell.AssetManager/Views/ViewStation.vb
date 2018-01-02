@@ -138,6 +138,17 @@ Public Class ViewStation
             End If
         End If
     End Sub
+
+    Private Sub GridControl1_Click(sender As Object, e As EventArgs) Handles GridControl1.Click
+
+    End Sub
+
+    Private Sub eButton_ButtonClick(sender As Object, e As Controls.ButtonPressedEventArgs) Handles eButton.ButtonClick
+        Dim R = GridView1.GetSelectedRows(0)
+        'get the Row
+        'open a dialog
+        'edit your stuff
+    End Sub
 End Class
 
 

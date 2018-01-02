@@ -22,13 +22,13 @@ Partial Public Class Magna_LowellEntities
         Throw New UnintentionalCodeFirstException()
     End Sub
 
-    Public Overridable Property LineRecords() As DbSet(Of LineRecord)
-    Public Overridable Property ErgonomicCategoryRecords() As DbSet(Of ErgonomicCategoryRecord)
     Public Overridable Property CfgTagRecords() As DbSet(Of CfgTagRecord)
-    Public Overridable Property PartResultRecords() As DbSet(Of PartResultRecord)
-    Public Overridable Property StatusEnumRecords() As DbSet(Of StatusEnumRecord)
-    Public Overridable Property StationRecords() As DbSet(Of StationRecord)
     Public Overridable Property GroupRecords() As DbSet(Of GroupRecord)
     Public Overridable Property DeviceRecords() As DbSet(Of DeviceRecord)
+    Public Overridable Property Eqp_ErgonomicCategories() As DbSet(Of Eqp_ErgonomicCategories)
+    Public Overridable Property eqp_Lines() As DbSet(Of eqp_Lines)
+    Public Overridable Property Eqp_PartResults() As DbSet(Of Eqp_PartResults)
+    Public Overridable Property Eqp_StateEnum() As DbSet(Of Eqp_StateEnum)
+    Public Overridable Property eqp_Stations() As DbSet(Of eqp_Stations)
 
 End Class

@@ -48,17 +48,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
-    <Reference Include="DevExpress.BonusSkins.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.BonusSkins.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 17.1\Components\Bin\Framework\DevExpress.BonusSkins.v17.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Data.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Utils.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="Effortless.Net.Encryption, Version=2.0.1.37, Culture=neutral, PublicKeyToken=603f9a8e5bb15e51, processorArchitecture=MSIL">
       <HintPath>..\packages\Effortless.Net.Encryption.2.0.1.37\lib\net40\Effortless.Net.Encryption.dll</HintPath>
     </Reference>
@@ -109,21 +110,6 @@
     <Compile Include="Controllers\EditCfgController.vb" />
     <Compile Include="Controllers\EditLineController.vb" />
     <Compile Include="DbFactory.vb" />
-    <Compile Include="Models\Db\Eqp_ErgonomicCategories.vb">
-      <DependentUpon>MagnaLowell.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Db\eqp_Lines.vb">
-      <DependentUpon>MagnaLowell.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Db\Eqp_PartResults.vb">
-      <DependentUpon>MagnaLowell.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Db\Eqp_StateEnum.vb">
-      <DependentUpon>MagnaLowell.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Db\eqp_Stations.vb">
-      <DependentUpon>MagnaLowell.tt</DependentUpon>
-    </Compile>
     <Compile Include="Repositories\Base\EditRepository.vb" />
     <Compile Include="Interfaces\IController.vb" />
     <Compile Include="Models\EditModel.vb" />
@@ -151,7 +137,13 @@
     <Compile Include="Models\Db\DeviceRecord.vb">
       <DependentUpon>MagnaLowell.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Db\ErgonomicCategoryRecord.vb">
+      <DependentUpon>MagnaLowell.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Db\GroupRecord.vb">
+      <DependentUpon>MagnaLowell.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Db\LineRecord.vb">
       <DependentUpon>MagnaLowell.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Db\MagnaLowell.Context.vb">
@@ -171,8 +163,17 @@
     </Compile>
     <Compile Include="Models\Db\Magna_LowellEntities.vb" />
     <Compile Include="Models\Business\PartResult.vb" />
+    <Compile Include="Models\Db\PartResultRecord.vb">
+      <DependentUpon>MagnaLowell.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Business\Station.vb" />
+    <Compile Include="Models\Db\StationRecord.vb">
+      <DependentUpon>MagnaLowell.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Business\StatusEnum.vb" />
+    <Compile Include="Models\Db\StatusEnumRecord.vb">
+      <DependentUpon>MagnaLowell.tt</DependentUpon>
+    </Compile>
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
@@ -193,19 +194,7 @@
     <Compile Include="Views\Dialogs\DialogCreateLine.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Dialogs\DialogEditStationStates.Designer.vb">
-      <DependentUpon>DialogEditStationStates.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Dialogs\DialogEditStationStates.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Views\Dialogs\IDialogEdit.vb" />
-    <Compile Include="Views\Dialogs\StationEdit.Designer.vb">
-      <DependentUpon>StationEdit.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Dialogs\StationEdit.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Views\EditLines.Designer.vb">
       <DependentUpon>EditLines.vb</DependentUpon>
     </Compile>
@@ -252,12 +241,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Dialogs\DialogCreateLine.resx">
       <DependentUpon>DialogCreateLine.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Dialogs\DialogEditStationStates.resx">
-      <DependentUpon>DialogEditStationStates.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Dialogs\StationEdit.resx">
-      <DependentUpon>StationEdit.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ViewLine.resx">
       <DependentUpon>ViewLine.vb</DependentUpon>
@@ -310,7 +293,6 @@
     <None Include="My Project\DataSources\Security_StatusEnum.datasource" />
     <None Include="My Project\DataSources\Security_UserTable.datasource" />
     <None Include="My Project\DataSources\Station.datasource" />
-    <None Include="My Project\DataSources\StatusEnum.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>

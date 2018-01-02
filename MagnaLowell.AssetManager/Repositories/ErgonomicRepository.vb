@@ -1,7 +1,7 @@
 ﻿Imports MagnaLowell.AssetManager
 
 Public Class ErgonomicRepository
-    Inherits EditRepository(Of ErgonomicCategory, ErgonomicCategoryRecord)
+    Inherits EditRepository(Of ErgonomicCategory, Eqp_ErgonomicCategories)
 
     Public Sub New(dbFactory As DbFactory)
         MyBase.New(dbFactory)
@@ -11,7 +11,7 @@ Public Class ErgonomicRepository
         Return New Object() {model.ErgId}
     End Function
 
-    Protected Overrides Function MapOutRecord(inModel As ErgonomicCategory, outRecord As ErgonomicCategoryRecord) As ErgonomicCategoryRecord
+    Protected Overrides Function MapOutRecord(inModel As ErgonomicCategory, outRecord As Eqp_ErgonomicCategories) As Eqp_ErgonomicCategories
         outRecord.ErgId = inModel.ErgId
         outRecord.Name = inModel.Name
         outRecord.erg_Durration_Hrs = inModel.DurrationHrs
@@ -20,7 +20,7 @@ Public Class ErgonomicRepository
         Return outRecord
     End Function
 
-    Protected Overrides Function MapOutModel(inRecord As ErgonomicCategoryRecord, outModel As ErgonomicCategory) As ErgonomicCategory
+    Protected Overrides Function MapOutModel(inRecord As Eqp_ErgonomicCategories, outModel As ErgonomicCategory) As ErgonomicCategory
 
         outModel.ErgId = inRecord.ErgId
         outModel.Name = inRecord.Name

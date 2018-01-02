@@ -10,22 +10,19 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class StationRecord
+Partial Public Class eqp_Stations
     Public Property StationId As Integer
     Public Property LineId As Integer
-    Public Property Name As String
-    Public Property Description As String
+    Public Property StationName As String
+    Public Property StationDefinition As String
     Public Property ErgonomicId As Integer
     Public Property MinTrainingHours As Integer
     Public Property DaysofConsideration As Integer
-    Public Property StatusTagId As Nullable(Of Integer)
-    Public Property ShopLogixFolderName As String
-    Public Property StationName As String
-    Public Property StationDefinition As String
     Public Property StateTagId As Nullable(Of Integer)
+    Public Property ShopLogixFolderName As String
 
-    Public Overridable Property Eqp_ErgonomicCategories As ErgonomicCategoryRecord
-    Public Overridable Property eqp_Lines As LineRecord
-    Public Overridable Property Eqp_StateEnum As ICollection(Of StatusEnumRecord) = New HashSet(Of StatusEnumRecord)
+    Public Overridable Property Eqp_ErgonomicCategories As Eqp_ErgonomicCategories
+    Public Overridable Property eqp_Lines As eqp_Lines
+    Public Overridable Property Eqp_StateEnum As ICollection(Of Eqp_StateEnum) = New HashSet(Of Eqp_StateEnum)
 
 End Class

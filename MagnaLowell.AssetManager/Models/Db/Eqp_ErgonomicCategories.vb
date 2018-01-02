@@ -10,12 +10,13 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class PartResultRecord
-    Public Property Id As Integer
-    Public Property Code As Integer
-    Public Property LineId As Integer
-    Public Property Description As String
+Partial Public Class Eqp_ErgonomicCategories
+    Public Property ErgId As Integer
+    Public Property Name As String
+    Public Property erg_Durration_Hrs As Decimal
+    Public Property erg_Span_Hrs As Decimal
+    Public Property erg_Rest_Hrs As Decimal
 
-    Public Overridable Property eqp_Lines As LineRecord
+    Public Overridable Property eqp_Stations As ICollection(Of eqp_Stations) = New HashSet(Of eqp_Stations)
 
 End Class

@@ -31,7 +31,7 @@ Public Class EditLines
         TreeView1.Nodes.Clear()
         Dim nodes = New List(Of TreeNode)()
         For Each l In _data.Lines
-            Dim n = New TreeNode($"{l.Dept}: {l.LineName}") With {.Tag = New LineViewModel(l, _data.Lines)}
+            Dim n = New TreeNode($"{l.name}: {l.LineName}") With {.Tag = New LineViewModel(l, _data.Lines)}
             Dim subNPartResults = New TreeNode($"Part Results") With {.Tag = New PartResultsViewModel(_data.PartResults, l)}
             Dim subNStations = New TreeNode($"Stations") With {.Tag = New StationViewModel(l, _data.Stations, _data.ErgonomicCategories, _data.GetTags())}
             n.Nodes.Add(subNPartResults)

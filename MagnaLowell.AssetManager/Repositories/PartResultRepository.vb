@@ -1,7 +1,7 @@
 ﻿Imports MagnaLowell.AssetManager
 
 Public Class PartResultRepository
-    Inherits EditRepository(Of PartResult, PartResultRecord)
+    Inherits EditRepository(Of PartResult, Eqp_PartResults)
 
     Public Sub New(dbFactory As DbFactory)
         MyBase.New(dbFactory)
@@ -11,16 +11,14 @@ Public Class PartResultRepository
         Return New Object() {model.Id}
     End Function
 
-    Protected Overrides Function MapOutRecord(inModel As PartResult, outRecord As PartResultRecord) As PartResultRecord
-        outRecord.Id = inModel.Id
+    Protected Overrides Function MapOutRecord(inModel As PartResult, outRecord As Eqp_PartResults) As Eqp_PartResults
         outRecord.Code = inModel.Code
         outRecord.LineId = inModel.LineId
         outRecord.Description = inModel.Description
         Return outRecord
     End Function
 
-    Protected Overrides Function MapOutModel(inRecord As PartResultRecord, outModel As PartResult) As PartResult
-        outModel.Id = inRecord.Id
+    Protected Overrides Function MapOutModel(inRecord As Eqp_PartResults, outModel As PartResult) As PartResult
         outModel.Code = inRecord.Code
         outModel.LineId = inRecord.LineId
         outModel.Description = inRecord.Description

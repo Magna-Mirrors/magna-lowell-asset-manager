@@ -42,6 +42,8 @@ Partial Class ViewStation
         Me.colStatusTagId = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.LookUpEditStatusTag = New DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit()
         Me.CfgTagBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ColEditStationStates = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.eButton = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
         Me.colEditState = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
@@ -56,6 +58,7 @@ Partial Class ViewStation
         CType(Me.SpinEditDaysOfConsideration, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LookUpEditStatusTag, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CfgTagBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.eButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -77,7 +80,7 @@ Partial Class ViewStation
         Me.GridControl1.Location = New System.Drawing.Point(12, 12)
         Me.GridControl1.MainView = Me.GridView1
         Me.GridControl1.Name = "GridControl1"
-        Me.GridControl1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.SpinEditMinTrainingHours, Me.SpinEditDaysOfConsideration, Me.LookUpEditErgonomic, Me.LookUpEditStatusTag})
+        Me.GridControl1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.SpinEditMinTrainingHours, Me.SpinEditDaysOfConsideration, Me.LookUpEditErgonomic, Me.LookUpEditStatusTag, Me.eButton})
         Me.GridControl1.Size = New System.Drawing.Size(1000, 356)
         Me.GridControl1.TabIndex = 4
         Me.GridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
@@ -88,7 +91,7 @@ Partial Class ViewStation
         '
         'GridView1
         '
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colErgonomicId, Me.colMinTrainingHours, Me.colDaysofConsideration, Me.colShopLogixFolderName, Me.colName, Me.colDescription, Me.colStatusTagId, Me.colEditState})
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colErgonomicId, Me.colMinTrainingHours, Me.colDaysofConsideration, Me.colShopLogixFolderName, Me.colName, Me.colDescription, Me.colStatusTagId, Me.ColEditStationStates, Me.colEditState})
         GridFormatRule1.Name = "Format0"
         FormatConditionRuleUniqueDuplicate1.Appearance.BackColor = System.Drawing.Color.IndianRed
         FormatConditionRuleUniqueDuplicate1.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -104,14 +107,19 @@ Partial Class ViewStation
         '
         'colErgonomicId
         '
+        Me.colErgonomicId.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.colErgonomicId.AppearanceHeader.Options.UseFont = True
         Me.colErgonomicId.ColumnEdit = Me.LookUpEditErgonomic
         Me.colErgonomicId.FieldName = "ErgonomicId"
         Me.colErgonomicId.Name = "colErgonomicId"
         Me.colErgonomicId.Visible = True
         Me.colErgonomicId.VisibleIndex = 0
+        Me.colErgonomicId.Width = 109
         '
         'LookUpEditErgonomic
         '
+        Me.LookUpEditErgonomic.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LookUpEditErgonomic.Appearance.Options.UseFont = True
         Me.LookUpEditErgonomic.AutoHeight = False
         Me.LookUpEditErgonomic.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.LookUpEditErgonomic.DataSource = Me.ErgonomicCategoryBindingSource
@@ -126,14 +134,19 @@ Partial Class ViewStation
         '
         'colMinTrainingHours
         '
+        Me.colMinTrainingHours.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.colMinTrainingHours.AppearanceHeader.Options.UseFont = True
         Me.colMinTrainingHours.ColumnEdit = Me.SpinEditMinTrainingHours
         Me.colMinTrainingHours.FieldName = "MinTrainingHours"
         Me.colMinTrainingHours.Name = "colMinTrainingHours"
         Me.colMinTrainingHours.Visible = True
         Me.colMinTrainingHours.VisibleIndex = 1
+        Me.colMinTrainingHours.Width = 109
         '
         'SpinEditMinTrainingHours
         '
+        Me.SpinEditMinTrainingHours.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SpinEditMinTrainingHours.Appearance.Options.UseFont = True
         Me.SpinEditMinTrainingHours.AutoHeight = False
         Me.SpinEditMinTrainingHours.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.SpinEditMinTrainingHours.IsFloatValue = False
@@ -142,14 +155,19 @@ Partial Class ViewStation
         '
         'colDaysofConsideration
         '
+        Me.colDaysofConsideration.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.colDaysofConsideration.AppearanceHeader.Options.UseFont = True
         Me.colDaysofConsideration.ColumnEdit = Me.SpinEditDaysOfConsideration
         Me.colDaysofConsideration.FieldName = "DaysofConsideration"
         Me.colDaysofConsideration.Name = "colDaysofConsideration"
         Me.colDaysofConsideration.Visible = True
         Me.colDaysofConsideration.VisibleIndex = 2
+        Me.colDaysofConsideration.Width = 109
         '
         'SpinEditDaysOfConsideration
         '
+        Me.SpinEditDaysOfConsideration.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SpinEditDaysOfConsideration.Appearance.Options.UseFont = True
         Me.SpinEditDaysOfConsideration.AutoHeight = False
         Me.SpinEditDaysOfConsideration.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.SpinEditDaysOfConsideration.IsFloatValue = False
@@ -158,36 +176,50 @@ Partial Class ViewStation
         '
         'colShopLogixFolderName
         '
+        Me.colShopLogixFolderName.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.colShopLogixFolderName.AppearanceHeader.Options.UseFont = True
         Me.colShopLogixFolderName.FieldName = "ShopLogixFolderName"
         Me.colShopLogixFolderName.Name = "colShopLogixFolderName"
         Me.colShopLogixFolderName.Visible = True
         Me.colShopLogixFolderName.VisibleIndex = 3
+        Me.colShopLogixFolderName.Width = 109
         '
         'colName
         '
+        Me.colName.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.colName.AppearanceHeader.Options.UseFont = True
         Me.colName.FieldName = "Name"
         Me.colName.Name = "colName"
         Me.colName.Visible = True
         Me.colName.VisibleIndex = 4
+        Me.colName.Width = 109
         '
         'colDescription
         '
+        Me.colDescription.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.colDescription.AppearanceHeader.Options.UseFont = True
         Me.colDescription.FieldName = "Description"
         Me.colDescription.Name = "colDescription"
         Me.colDescription.Visible = True
         Me.colDescription.VisibleIndex = 5
+        Me.colDescription.Width = 109
         '
         'colStatusTagId
         '
+        Me.colStatusTagId.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.colStatusTagId.AppearanceHeader.Options.UseFont = True
         Me.colStatusTagId.ColumnEdit = Me.LookUpEditStatusTag
         Me.colStatusTagId.FieldName = "StatusTagId"
         Me.colStatusTagId.Name = "colStatusTagId"
         Me.colStatusTagId.Visible = True
         Me.colStatusTagId.VisibleIndex = 6
+        Me.colStatusTagId.Width = 109
         '
         'LookUpEditStatusTag
         '
         Me.LookUpEditStatusTag.AllowNullInput = DevExpress.Utils.DefaultBoolean.[True]
+        Me.LookUpEditStatusTag.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LookUpEditStatusTag.Appearance.Options.UseFont = True
         Me.LookUpEditStatusTag.AutoHeight = False
         Me.LookUpEditStatusTag.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.LookUpEditStatusTag.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DisplayName", "Display Name", 87, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.Ascending), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("InUse", "In Use", 41, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.Ascending), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DisplayUsedByStation", "Used By Station", 123, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
@@ -201,14 +233,40 @@ Partial Class ViewStation
         '
         Me.CfgTagBindingSource.DataSource = GetType(MagnaLowell.AssetManager.DisplayCfgTag)
         '
+        'ColEditStationStates
+        '
+        Me.ColEditStationStates.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ColEditStationStates.AppearanceHeader.Options.UseFont = True
+        Me.ColEditStationStates.Caption = "Edit States"
+        Me.ColEditStationStates.ColumnEdit = Me.eButton
+        Me.ColEditStationStates.Name = "ColEditStationStates"
+        Me.ColEditStationStates.Visible = True
+        Me.ColEditStationStates.VisibleIndex = 7
+        Me.ColEditStationStates.Width = 43
+        '
+        'eButton
+        '
+        Me.eButton.Appearance.Options.UseTextOptions = True
+        Me.eButton.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.eButton.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.eButton.AutoHeight = False
+        Me.eButton.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D
+        Me.eButton.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
+        Me.eButton.Name = "eButton"
+        Me.eButton.NullText = "..."
+        Me.eButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor
+        '
         'colEditState
         '
+        Me.colEditState.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.colEditState.AppearanceHeader.Options.UseFont = True
         Me.colEditState.FieldName = "EditState"
         Me.colEditState.Name = "colEditState"
         Me.colEditState.OptionsColumn.AllowEdit = False
         Me.colEditState.OptionsColumn.ReadOnly = True
         Me.colEditState.Visible = True
-        Me.colEditState.VisibleIndex = 7
+        Me.colEditState.VisibleIndex = 8
+        Me.colEditState.Width = 176
         '
         'LayoutControlGroup1
         '
@@ -247,6 +305,7 @@ Partial Class ViewStation
         CType(Me.SpinEditDaysOfConsideration, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LookUpEditStatusTag, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CfgTagBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.eButton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -273,4 +332,6 @@ Partial Class ViewStation
     Friend WithEvents ErgonomicCategoryBindingSource As BindingSource
     Friend WithEvents LookUpEditStatusTag As DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit
     Friend WithEvents CfgTagBindingSource As BindingSource
+    Friend WithEvents ColEditStationStates As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents eButton As DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit
 End Class

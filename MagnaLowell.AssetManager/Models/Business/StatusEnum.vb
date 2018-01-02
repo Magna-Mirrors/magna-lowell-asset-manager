@@ -12,7 +12,7 @@ Public Class StatusEnum
     End Sub
 
     Public Sub CopyTo(item As StatusEnum) Implements ICopy(Of StatusEnum).CopyTo
-        item.Id = Id
+        '  item.Id = Id
         item.StationId = StationId
         item.State = State
         item.Description = Description
@@ -26,15 +26,15 @@ Public Class StatusEnum
     '    End If
     'End Sub
 
-    Public Property Id As Integer
-    '    Get
-    '        Return _id
-    '    End Get
-    '    Set(value As Integer)
-    '        TrySetEditToUpdate(value <> _id)
-    '        _id = value
-    '    End Set
-    'End Property
+    'Public Property Id As Integer
+    ''    Get
+    ''        Return _id
+    ''    End Get
+    ''    Set(value As Integer)
+    ''        TrySetEditToUpdate(value <> _id)
+    ''        _id = value
+    ''    End Set
+    ''End Property
     Public Property StationId As Integer
     '    Get
     '        Return _stationId
