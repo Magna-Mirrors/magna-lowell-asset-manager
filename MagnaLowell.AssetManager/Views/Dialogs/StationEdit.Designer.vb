@@ -91,9 +91,9 @@ Partial Class StationEdit
         'TableLayoutPanel2
         '
         Me.TableLayoutPanel2.ColumnCount = 3
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.30243!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.69757!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.44737!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.55264!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.Label1, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Label2, 0, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.Label3, 0, 2)
@@ -120,7 +120,7 @@ Partial Class StationEdit
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(927, 400)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(803, 400)
         Me.TableLayoutPanel2.TabIndex = 1
         '
         'Label1
@@ -130,7 +130,7 @@ Partial Class StationEdit
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(3, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(182, 50)
+        Me.Label1.Size = New System.Drawing.Size(195, 50)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Name"
         '
@@ -141,7 +141,7 @@ Partial Class StationEdit
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(3, 50)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(182, 49)
+        Me.Label2.Size = New System.Drawing.Size(195, 49)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Description"
         '
@@ -152,7 +152,7 @@ Partial Class StationEdit
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(3, 99)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(182, 50)
+        Me.Label3.Size = New System.Drawing.Size(195, 50)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Ergonomic Category"
         '
@@ -163,7 +163,7 @@ Partial Class StationEdit
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(3, 149)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(182, 50)
+        Me.Label4.Size = New System.Drawing.Size(195, 50)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Min. Training Hours"
         '
@@ -174,7 +174,7 @@ Partial Class StationEdit
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(3, 199)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(182, 50)
+        Me.Label5.Size = New System.Drawing.Size(195, 50)
         Me.Label5.TabIndex = 4
         Me.Label5.Text = "Days of Consideration"
         '
@@ -185,7 +185,7 @@ Partial Class StationEdit
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(3, 249)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(182, 50)
+        Me.Label6.Size = New System.Drawing.Size(195, 50)
         Me.Label6.TabIndex = 5
         Me.Label6.Text = "Shop Logix Folder Path"
         '
@@ -196,7 +196,7 @@ Partial Class StationEdit
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.Location = New System.Drawing.Point(3, 299)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(182, 50)
+        Me.Label7.Size = New System.Drawing.Size(195, 50)
         Me.Label7.TabIndex = 6
         Me.Label7.Text = "Status Tag Assignment"
         '
@@ -207,20 +207,20 @@ Partial Class StationEdit
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(3, 349)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(182, 51)
+        Me.Label8.Size = New System.Drawing.Size(195, 51)
         Me.Label8.TabIndex = 7
         Me.Label8.Text = "State Enumberations"
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(191, 3)
+        Me.TextBox1.Location = New System.Drawing.Point(204, 3)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(100, 20)
         Me.TextBox1.TabIndex = 8
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(191, 53)
+        Me.TextBox2.Location = New System.Drawing.Point(204, 53)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(100, 20)
         Me.TextBox2.TabIndex = 9
@@ -228,28 +228,28 @@ Partial Class StationEdit
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(191, 102)
+        Me.ComboBox1.Location = New System.Drawing.Point(204, 102)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox1.TabIndex = 10
         '
         'NumericUpDown1
         '
-        Me.NumericUpDown1.Location = New System.Drawing.Point(191, 152)
+        Me.NumericUpDown1.Location = New System.Drawing.Point(204, 152)
         Me.NumericUpDown1.Name = "NumericUpDown1"
         Me.NumericUpDown1.Size = New System.Drawing.Size(120, 20)
         Me.NumericUpDown1.TabIndex = 11
         '
         'NumericUpDown2
         '
-        Me.NumericUpDown2.Location = New System.Drawing.Point(191, 202)
+        Me.NumericUpDown2.Location = New System.Drawing.Point(204, 202)
         Me.NumericUpDown2.Name = "NumericUpDown2"
         Me.NumericUpDown2.Size = New System.Drawing.Size(120, 20)
         Me.NumericUpDown2.TabIndex = 12
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(191, 252)
+        Me.TextBox3.Location = New System.Drawing.Point(204, 252)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(100, 20)
         Me.TextBox3.TabIndex = 13
@@ -257,7 +257,7 @@ Partial Class StationEdit
         'ComboBox2
         '
         Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(191, 302)
+        Me.ComboBox2.Location = New System.Drawing.Point(204, 302)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox2.TabIndex = 14
