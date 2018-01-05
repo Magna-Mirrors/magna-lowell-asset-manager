@@ -102,7 +102,6 @@ Partial Class ViewStation
         Me.GridView1.FormatRules.Add(GridFormatRule1)
         Me.GridView1.GridControl = Me.GridControl1
         Me.GridView1.Name = "GridView1"
-        Me.GridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom
         Me.GridView1.OptionsView.ShowGroupPanel = False
         '
         'colErgonomicId
@@ -112,6 +111,7 @@ Partial Class ViewStation
         Me.colErgonomicId.ColumnEdit = Me.LookUpEditErgonomic
         Me.colErgonomicId.FieldName = "ErgonomicId"
         Me.colErgonomicId.Name = "colErgonomicId"
+        Me.colErgonomicId.OptionsColumn.AllowEdit = False
         Me.colErgonomicId.Visible = True
         Me.colErgonomicId.VisibleIndex = 0
         Me.colErgonomicId.Width = 109
@@ -139,6 +139,7 @@ Partial Class ViewStation
         Me.colMinTrainingHours.ColumnEdit = Me.SpinEditMinTrainingHours
         Me.colMinTrainingHours.FieldName = "MinTrainingHours"
         Me.colMinTrainingHours.Name = "colMinTrainingHours"
+        Me.colMinTrainingHours.OptionsColumn.AllowEdit = False
         Me.colMinTrainingHours.Visible = True
         Me.colMinTrainingHours.VisibleIndex = 1
         Me.colMinTrainingHours.Width = 109
@@ -160,6 +161,7 @@ Partial Class ViewStation
         Me.colDaysofConsideration.ColumnEdit = Me.SpinEditDaysOfConsideration
         Me.colDaysofConsideration.FieldName = "DaysofConsideration"
         Me.colDaysofConsideration.Name = "colDaysofConsideration"
+        Me.colDaysofConsideration.OptionsColumn.AllowEdit = False
         Me.colDaysofConsideration.Visible = True
         Me.colDaysofConsideration.VisibleIndex = 2
         Me.colDaysofConsideration.Width = 109
@@ -180,6 +182,7 @@ Partial Class ViewStation
         Me.colShopLogixFolderName.AppearanceHeader.Options.UseFont = True
         Me.colShopLogixFolderName.FieldName = "ShopLogixFolderName"
         Me.colShopLogixFolderName.Name = "colShopLogixFolderName"
+        Me.colShopLogixFolderName.OptionsColumn.AllowEdit = False
         Me.colShopLogixFolderName.Visible = True
         Me.colShopLogixFolderName.VisibleIndex = 3
         Me.colShopLogixFolderName.Width = 109
@@ -190,6 +193,7 @@ Partial Class ViewStation
         Me.colName.AppearanceHeader.Options.UseFont = True
         Me.colName.FieldName = "Name"
         Me.colName.Name = "colName"
+        Me.colName.OptionsColumn.AllowEdit = False
         Me.colName.Visible = True
         Me.colName.VisibleIndex = 4
         Me.colName.Width = 109
@@ -200,6 +204,7 @@ Partial Class ViewStation
         Me.colDescription.AppearanceHeader.Options.UseFont = True
         Me.colDescription.FieldName = "Description"
         Me.colDescription.Name = "colDescription"
+        Me.colDescription.OptionsColumn.AllowEdit = False
         Me.colDescription.Visible = True
         Me.colDescription.VisibleIndex = 5
         Me.colDescription.Width = 109
@@ -211,6 +216,7 @@ Partial Class ViewStation
         Me.colStatusTagId.ColumnEdit = Me.LookUpEditStatusTag
         Me.colStatusTagId.FieldName = "StatusTagId"
         Me.colStatusTagId.Name = "colStatusTagId"
+        Me.colStatusTagId.OptionsColumn.AllowEdit = False
         Me.colStatusTagId.Visible = True
         Me.colStatusTagId.VisibleIndex = 6
         Me.colStatusTagId.Width = 109
@@ -222,7 +228,7 @@ Partial Class ViewStation
         Me.LookUpEditStatusTag.Appearance.Options.UseFont = True
         Me.LookUpEditStatusTag.AutoHeight = False
         Me.LookUpEditStatusTag.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.LookUpEditStatusTag.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DisplayName", "Display Name", 87, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.Ascending), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("InUse", "In Use", 41, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.Ascending), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DisplayUsedByStation", "Used By Station", 123, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
+        Me.LookUpEditStatusTag.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DisplayName", "Display Name", 87, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.Ascending, DevExpress.Utils.DefaultBoolean.[Default]), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("InUse", "In Use", 41, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.Ascending, DevExpress.Utils.DefaultBoolean.[Default]), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DisplayUsedByStation", "Used By Station", 123, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.[Default])})
         Me.LookUpEditStatusTag.DataSource = Me.CfgTagBindingSource
         Me.LookUpEditStatusTag.DisplayMember = "DisplayName"
         Me.LookUpEditStatusTag.KeyMember = "TagId"
@@ -273,7 +279,6 @@ Partial Class ViewStation
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "LayoutControlGroup1"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(1024, 380)
         Me.LayoutControlGroup1.TextVisible = False

@@ -10,9 +10,9 @@ Public Class DbgCfgInterface
 
         If _cfg Is Nothing Then
             _cfg = New CfgSettings With {.DataBase = "Magna_Lowell",
-                                            .PasswordDecrypted = "yaaOt0883BhyOBskJe5t",
-                                            .UserName = "sa",
-                                            .ServerInstance = "fzse"}
+                                            .PasswordDecrypted = "123456789",
+                                            .UserName = "debuguser",
+                                            .ServerInstance = ".\sqlexpress"}
 
             '_cfg = New CfgSettings With {.DataBase = "MagnaLowell",
             '                          .PasswordDecrypted = "Winston",
