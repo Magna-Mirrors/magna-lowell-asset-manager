@@ -11,6 +11,7 @@ Imports System
 Imports System.Collections.Generic
 
 Partial Public Class Eqp_StateEnum
+    Public Property Id As Integer
     Public Property StationId As Integer
     Public Property State As Integer
     Public Property Description As String

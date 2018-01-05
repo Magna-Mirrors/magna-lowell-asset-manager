@@ -82,9 +82,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CustomerId" Type="int" />
           <Property Name="LineName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="LineDefinition" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dept" Type="nvarchar" MaxLength="26" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="MaxConcurrentLogins" Type="int" Nullable="false" />
           <Property Name="WcfFileName" Type="nvarchar" MaxLength="120" Nullable="false" />
           <Property Name="SelectCmd" Type="nvarchar" MaxLength="120" Nullable="false" />
@@ -96,18 +96,18 @@
         </EntityType>
         <EntityType Name="Eqp_PartResults">
           <Key>
-            <PropertyRef Name="Code" />
-            <PropertyRef Name="LineId" />
+            <PropertyRef Name="Id" />
           </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Code" Type="int" Nullable="false" />
           <Property Name="LineId" Type="int" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Eqp_StateEnum">
           <Key>
-            <PropertyRef Name="StationId" />
-            <PropertyRef Name="State" />
+            <PropertyRef Name="Id" />
           </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="StationId" Type="int" Nullable="false" />
           <Property Name="State" Type="int" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="82" Nullable="false" />
@@ -118,12 +118,12 @@
           </Key>
           <Property Name="StationId" Type="int" Nullable="false" />
           <Property Name="LineId" Type="int" Nullable="false" />
-          <Property Name="StationName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="StationDefinition" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ErgonomicId" Type="int" Nullable="false" />
           <Property Name="MinTrainingHours" Type="int" Nullable="false" />
           <Property Name="DaysofConsideration" Type="int" Nullable="false" />
-          <Property Name="StateTagId" Type="int" />
+          <Property Name="StatusTagId" Type="int" />
           <Property Name="ShopLogixFolderName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_Line_PartResults">
@@ -229,7 +229,7 @@
             <End Role="eqp_Stations" EntitySet="eqp_Stations" />
             <End Role="Eqp_StateEnum" EntitySet="Eqp_StateEnum" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="CfgTagRecord">
           <Key>
             <PropertyRef Name="TagId" />
@@ -308,9 +308,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CustomerId" Type="Int32" />
           <Property Name="LineName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LineDefinition" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dept" Type="String" MaxLength="26" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MaxConcurrentLogins" Type="Int32" Nullable="false" />
           <Property Name="WcfFileName" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
           <Property Name="SelectCmd" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
@@ -324,9 +324,9 @@
         </EntityType>
         <EntityType Name="Eqp_PartResults">
           <Key>
-            <PropertyRef Name="Code" />
-            <PropertyRef Name="LineId" />
+            <PropertyRef Name="Id" />
           </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Code" Type="Int32" Nullable="false" />
           <Property Name="LineId" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -334,9 +334,9 @@
         </EntityType>
         <EntityType Name="Eqp_StateEnum">
           <Key>
-            <PropertyRef Name="StationId" />
-            <PropertyRef Name="State" />
+            <PropertyRef Name="Id" />
           </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="StationId" Type="Int32" Nullable="false" />
           <Property Name="State" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="82" FixedLength="false" Unicode="true" />
@@ -348,12 +348,12 @@
           </Key>
           <Property Name="StationId" Type="Int32" Nullable="false" />
           <Property Name="LineId" Type="Int32" Nullable="false" />
-          <Property Name="StationName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="StationDefinition" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ErgonomicId" Type="Int32" Nullable="false" />
           <Property Name="MinTrainingHours" Type="Int32" Nullable="false" />
           <Property Name="DaysofConsideration" Type="Int32" Nullable="false" />
-          <Property Name="StateTagId" Type="Int32" />
+          <Property Name="StatusTagId" Type="Int32" />
           <Property Name="ShopLogixFolderName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Eqp_ErgonomicCategories" Relationship="Magna_LowellModel.FK_sdy_Stations_sdy_ErgonomicCategories" FromRole="eqp_Stations" ToRole="Eqp_ErgonomicCategories" />
           <NavigationProperty Name="eqp_Lines" Relationship="Magna_LowellModel.FK_Stations_Lines" FromRole="eqp_Stations" ToRole="eqp_Lines" />
@@ -407,7 +407,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -500,9 +500,9 @@
                 <ScalarProperty Name="SelectCmd" ColumnName="SelectCmd" />
                 <ScalarProperty Name="WcfFileName" ColumnName="WcfFileName" />
                 <ScalarProperty Name="MaxConcurrentLogins" ColumnName="MaxConcurrentLogins" />
-                <ScalarProperty Name="LineDefinition" ColumnName="LineDefinition" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Dept" ColumnName="Dept" />
                 <ScalarProperty Name="LineName" ColumnName="LineName" />
-                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -513,6 +513,7 @@
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="LineId" ColumnName="LineId" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -522,6 +523,7 @@
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="StationId" ColumnName="StationId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -529,12 +531,12 @@
             <EntityTypeMapping TypeName="Magna_LowellModel.eqp_Stations">
               <MappingFragment StoreEntitySet="eqp_Stations">
                 <ScalarProperty Name="ShopLogixFolderName" ColumnName="ShopLogixFolderName" />
-                <ScalarProperty Name="StateTagId" ColumnName="StateTagId" />
+                <ScalarProperty Name="StatusTagId" ColumnName="StatusTagId" />
                 <ScalarProperty Name="DaysofConsideration" ColumnName="DaysofConsideration" />
                 <ScalarProperty Name="MinTrainingHours" ColumnName="MinTrainingHours" />
                 <ScalarProperty Name="ErgonomicId" ColumnName="ErgonomicId" />
-                <ScalarProperty Name="StationDefinition" ColumnName="StationDefinition" />
-                <ScalarProperty Name="StationName" ColumnName="StationName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="LineId" ColumnName="LineId" />
                 <ScalarProperty Name="StationId" ColumnName="StationId" />
               </MappingFragment>

@@ -11,6 +11,7 @@ Imports System
 Imports System.Collections.Generic
 
 Partial Public Class Eqp_PartResults
+    Public Property Id As Integer
     Public Property Code As Integer
     Public Property LineId As Integer
     Public Property Description As String

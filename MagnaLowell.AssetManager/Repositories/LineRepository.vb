@@ -16,7 +16,7 @@ Public Class LineRepository
         outRecord.LineName = inModel.LineName
         outRecord.MaxConcurrentLogins = inModel.MaxConcurrentLogins
         outRecord.LineName = inModel.name
-        outRecord.LineDefinition = inModel.Description
+        outRecord.Description = inModel.Description
         outRecord.WcfFileName = inModel.WcfFileName
         outRecord.SelectCmd = inModel.SelectCommand
         outRecord.ScheduleFolder = inModel.ScheduleFolder
@@ -32,7 +32,7 @@ Public Class LineRepository
         outModel.LineName = inRecord.LineName
         outModel.MaxConcurrentLogins = inRecord.MaxConcurrentLogins
         outModel.name = inRecord.LineName
-        outModel.Description = inRecord.LineDefinition
+        outModel.Description = inRecord.Description
         outModel.EditState = EditState.None
         outModel.WcfFileName = inRecord.WcfFileName
         outModel.SelectCommand = inRecord.SelectCmd

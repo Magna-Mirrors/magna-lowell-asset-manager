@@ -8,16 +8,16 @@
         <EntityTypeShape EntityType="Magna_LowellModel.CfgTagRecord" Width="1.5" PointX="8.5" PointY="0.625" />
         <EntityTypeShape EntityType="Magna_LowellModel.GroupRecord" Width="1.5" PointX="10.75" PointY="0.625" />
         <EntityTypeShape EntityType="Magna_LowellModel.DeviceRecord" Width="1.5" PointX="10.75" PointY="3" />
-        <EntityTypeShape EntityType="Magna_LowellModel.Eqp_ErgonomicCategories" Width="1.5" PointX="0.75" PointY="6.25" />
+        <EntityTypeShape EntityType="Magna_LowellModel.Eqp_ErgonomicCategories" Width="1.5" PointX="0.75" PointY="7.875" />
         <EntityTypeShape EntityType="Magna_LowellModel.eqp_Lines" Width="1.5" PointX="0.75" PointY="2.125" />
-        <EntityTypeShape EntityType="Magna_LowellModel.Eqp_PartResults" Width="1.5" PointX="2.875" PointY="4.625" />
-        <EntityTypeShape EntityType="Magna_LowellModel.Eqp_StateEnum" Width="1.5" PointX="6.125" PointY="1.25" />
-        <EntityTypeShape EntityType="Magna_LowellModel.eqp_Stations" Width="1.5" PointX="3.75" PointY="0.625" />
+        <EntityTypeShape EntityType="Magna_LowellModel.Eqp_PartResults" Width="1.5" PointX="3" PointY="6.625" />
+        <EntityTypeShape EntityType="Magna_LowellModel.Eqp_StateEnum" Width="1.5" PointX="5.25" PointY="2.875" />
+        <EntityTypeShape EntityType="Magna_LowellModel.eqp_Stations" Width="1.5" PointX="3" PointY="2.375" />
         <AssociationConnector Association="Magna_LowellModel.FK_sdy_Stations_sdy_ErgonomicCategories" />
         <AssociationConnector Association="Magna_LowellModel.FK_Line_PartResults" />
         <AssociationConnector Association="Magna_LowellModel.FK_Stations_Lines" />
         <AssociationConnector Association="Magna_LowellModel.FK_Station_StateEnum" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

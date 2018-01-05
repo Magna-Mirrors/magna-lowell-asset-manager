@@ -13,12 +13,12 @@ Imports System.Collections.Generic
 Partial Public Class eqp_Stations
     Public Property StationId As Integer
     Public Property LineId As Integer
-    Public Property StationName As String
-    Public Property StationDefinition As String
+    Public Property Name As String
+    Public Property Description As String
     Public Property ErgonomicId As Integer
     Public Property MinTrainingHours As Integer
     Public Property DaysofConsideration As Integer
-    Public Property StateTagId As Nullable(Of Integer)
+    Public Property StatusTagId As Nullable(Of Integer)
     Public Property ShopLogixFolderName As String
 
     Public Overridable Property Eqp_ErgonomicCategories As Eqp_ErgonomicCategories

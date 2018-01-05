@@ -18,9 +18,9 @@ Public Class StationRepository
         outRecord.MinTrainingHours = inModel.MinTrainingHours
         outRecord.DaysofConsideration = inModel.DaysofConsideration
         outRecord.ShopLogixFolderName = inModel.ShopLogixFolderName
-        outRecord.StationName = inModel.Name
-        outRecord.StationDefinition = inModel.Description
-        outRecord.StateTagId = inModel.StatusTagId
+        outRecord.Name = inModel.Name
+        outRecord.Description = inModel.Description
+        outRecord.StatusTagId = inModel.StatusTagId
         Return outRecord
     End Function
 
@@ -31,9 +31,9 @@ Public Class StationRepository
         outModel.MinTrainingHours = inRecord.MinTrainingHours
         outModel.DaysofConsideration = inRecord.DaysofConsideration
         outModel.ShopLogixFolderName = inRecord.ShopLogixFolderName
-        outModel.Name = inRecord.StationName
-        outModel.Description = inRecord.StationDefinition
-        outModel.StatusTagId = inRecord.StateTagId
+        outModel.Name = inRecord.Name
+        outModel.Description = inRecord.Description
+        outModel.StatusTagId = inRecord.StatusTagId
         outModel.EditState = EditState.None
         Return outModel
     End Function
