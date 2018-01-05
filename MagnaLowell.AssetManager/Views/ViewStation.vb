@@ -42,7 +42,6 @@ Public Class ViewStation
         For Each sta In _selectedStations.Where(Function(x) x.EditState <> EditState.None)
             If sta.EditState = EditState.Create Then
                 sta.LineId = _data.SelectedLine.Id
-                _data.AllStations.Add(sta)
             ElseIf sta.EditState = EditState.Edit Then
                 Dim found As Station = _data.AllStations.Single(Function(x) x.Id = sta.Id)
                 sta.CopyTo(found)
