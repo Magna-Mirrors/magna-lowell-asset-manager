@@ -18,11 +18,16 @@ Public Class ViewStation
         End Get
     End Property
 
-
     Private _data As StationViewModel
     Private ReadOnly Property _selectedStations As IEnumerable(Of Station)
         Get
             Return _data.FilteredStations.ToList()
+        End Get
+    End Property
+    Private ReadOnly Property SelectedStation As Station
+        Get
+            Dim R = GridView1.GetSelectedRows(0)
+            Return TryCast(GridView1.GetRow(R), Station)
         End Get
     End Property
 
@@ -46,17 +51,53 @@ Public Class ViewStation
         Return True
     End Function
 
-    Private Sub eButton_ButtonClick(sender As Object, e As Controls.ButtonPressedEventArgs) Handles eButton.ButtonClick
-        Dim R = GridView1.GetSelectedRows(0)
-        Dim selectedStation = TryCast(GridView1.GetRow(R), Station)
+
+    Private Sub eButton_ButtonClick(sender As Object, e As EventArgs) Handles eButton.ButtonClick, BtnEdit.Click
         Dim dilg = New StationEdit()
-        dilg.LoadData(_data, selectedStation)
+        dilg.LoadData(_data, SelectedStation)
         dilg.ShowDialog()
         StationBindingSource.DataSource = _selectedStations
         StationBindingSource.ResetBindings(False)
-        'get the Row
-        'open a dialog
-        'edit your stuff
+    End Sub
+
+    Private Sub BtnNew_Click(sender As Object, e As EventArgs) Handles BtnNew.Click
+        Dim dilg = New StationEdit()
+        Dim newstation = New Station() With {.LineId = _data.SelectedLine.Id,
+                                            .ErgonomicId = _data.ErgoCategories.First().ErgId,
+                                            .EditState = EditState.Create,
+                                            .MinTrainingHours = 16,
+                                            .DaysofConsideration = 180}
+        dilg.LoadData(_data, newstation)
+        If dilg.ShowDialog() = DialogResult.OK Then
+            _data.AllStations.Add(newstation)
+        End If
+        StationBindingSource.DataSource = _selectedStations
+        StationBindingSource.ResetBindings(False)
+    End Sub
+
+    Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles BtnDelete.Click
+        If SelectedStation.EditState = EditState.Delete Then
+            SelectedStation.EditState = EditState.None
+        ElseIf SelectedStation.EditState <> EditState.Create Then
+            SelectedStation.EditState = EditState.Delete
+        Else
+            _data.AllStations.Remove(SelectedStation)
+        End If
+        StationBindingSource.DataSource = _selectedStations
+        StationBindingSource.ResetBindings(False)
+        CheckDeleteButtonText()
+    End Sub
+
+    Private Sub GridView1_FocusedRowChanged(sender As Object, e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles GridView1.FocusedRowChanged
+        CheckDeleteButtonText()
+    End Sub
+
+    Private Sub CheckDeleteButtonText()
+        If SelectedStation?.EditState = EditState.Delete Then
+            BtnDelete.Text = "Undo Delete"
+        Else
+            BtnDelete.Text = "Delete"
+        End If
     End Sub
 End Class
 
