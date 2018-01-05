@@ -20,6 +20,7 @@ Public Class ViewLine
     Public Sub New()
         InitializeComponent()
         NudMaxLogins.Properties.MaxValue = Decimal.MaxValue - 1
+        ComboSchedulerMode.Properties.AddEnum(Of SchedulerMode)()
     End Sub
 
     Dim _data As LineViewModel
@@ -27,18 +28,37 @@ Public Class ViewLine
         _data = data
         TxtId.Text = _data.SelectedLine.Id.ToString()
         TxtName.Text = _data.SelectedLine.LineName
+        TxtWcf.Text = _data.SelectedLine.WcfFileName
         NudMaxLogins.Value = _data.SelectedLine.MaxConcurrentLogins
-        TxtDescription.Text = _data.SelectedLine.Description
-        TxtDept.Text = _data.SelectedLine.name
-
+        TxtDept.Text = _data.SelectedLine.Dept
+        TxtDefinition.Text = _data.SelectedLine.Definition
+        TxtSelectCmd.Text = _data.SelectedLine.SelectCommand
+        TxtScheduleFolder.Text = _data.SelectedLine.ScheduleFolder
+        TxtWorkCell.Text = _data.SelectedLine.Workcell
+        NudBufferMin.Value = _data.SelectedLine.WorkBufferMinutes
+        NudReorderPercent.Value = _data.SelectedLine.ReOrderPercentThreshold
+        ComboSchedulerMode.EditValue = _data.SelectedLine.SchedulerMethod
     End Sub
 
     Public Function Save() As Boolean Implements IView(Of LineViewModel).Save, IEditControl(Of LineViewModel).Save
         If _namepass Then
             _data.SelectedLine.LineName = TxtName.Text
+            _data.SelectedLine.WcfFileName = TxtWcf.Text
             _data.SelectedLine.MaxConcurrentLogins = CInt(NudMaxLogins.Value)
-            _data.SelectedLine.Description = TxtDescription.Text
-            _data.SelectedLine.name = TxtDept.Text
+            _data.SelectedLine.Dept = TxtDept.Text
+            _data.SelectedLine.Definition = TxtDefinition.Text
+            _data.SelectedLine.SelectCommand = TxtSelectCmd.Text
+            _data.SelectedLine.ScheduleFolder = TxtScheduleFolder.Text
+            _data.SelectedLine.Workcell = TxtWorkCell.Text
+            _data.SelectedLine.WorkBufferMinutes = NudBufferMin.Value
+            _data.SelectedLine.ReOrderPercentThreshold = NudReorderPercent.Value
+            _data.SelectedLine.SchedulerMethod = CType(ComboSchedulerMode.EditValue, SchedulerMode)
+
+            If _data.SelectedLine.Id = 0 Then
+                _data.SelectedLine.EditState = EditState.Create
+            Else
+                _data.SelectedLine.EditState = EditState.Edit
+            End If
             Return True
         End If
         Return False

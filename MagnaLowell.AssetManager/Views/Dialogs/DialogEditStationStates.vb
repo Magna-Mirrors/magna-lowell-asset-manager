@@ -19,7 +19,7 @@ Public Class DialogEditStationStates
         Me._Line = Line
         Me._Data = Data
         Me._States = States
-        Label1.Text = String.Format(Label1.Tag.ToString, _Line.name, _Data.Name)
+        Label1.Text = String.Format(Label1.Tag.ToString, _Line.LineName, _Data.Name)
         Bs_StationStates.DataSource = _States
     End Sub
 

@@ -14,9 +14,9 @@ Public Class LineRepository
     Protected Overrides Function MapOutRecord(inModel As Line, outRecord As eqp_Lines) As eqp_Lines
         outRecord.Id = inModel.Id
         outRecord.LineName = inModel.LineName
+        outRecord.Dept = inModel.Dept
         outRecord.MaxConcurrentLogins = inModel.MaxConcurrentLogins
-        outRecord.LineName = inModel.name
-        outRecord.Description = inModel.Description
+        outRecord.LineDefinition = inModel.Definition
         outRecord.WcfFileName = inModel.WcfFileName
         outRecord.SelectCmd = inModel.SelectCommand
         outRecord.ScheduleFolder = inModel.ScheduleFolder
@@ -30,9 +30,9 @@ Public Class LineRepository
     Protected Overrides Function MapOutModel(inRecord As eqp_Lines, outModel As Line) As Line
         outModel.Id = inRecord.Id
         outModel.LineName = inRecord.LineName
+        outModel.Dept = inRecord.Dept
         outModel.MaxConcurrentLogins = inRecord.MaxConcurrentLogins
-        outModel.name = inRecord.LineName
-        outModel.Description = inRecord.Description
+        outModel.Definition = inRecord.LineDefinition
         outModel.EditState = EditState.None
         outModel.WcfFileName = inRecord.WcfFileName
         outModel.SelectCommand = inRecord.SelectCmd

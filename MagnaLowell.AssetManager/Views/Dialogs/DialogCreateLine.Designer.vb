@@ -23,10 +23,10 @@ Partial Class DialogCreateLine
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.ViewLine1 = New MagnaLowell.AssetManager.ViewLine()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.BtnSave = New System.Windows.Forms.Button()
         Me.BtnCancel = New System.Windows.Forms.Button()
+        Me.ViewLine1 = New MagnaLowell.AssetManager.ViewLine()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.SuspendLayout()
@@ -41,19 +41,10 @@ Partial Class DialogCreateLine
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 2
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 156.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(426, 191)
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(426, 433)
         Me.TableLayoutPanel1.TabIndex = 0
-        '
-        'ViewLine1
-        '
-        Me.ViewLine1.AutoSize = True
-        Me.ViewLine1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ViewLine1.Location = New System.Drawing.Point(3, 3)
-        Me.ViewLine1.Name = "ViewLine1"
-        Me.ViewLine1.Size = New System.Drawing.Size(420, 150)
-        Me.ViewLine1.TabIndex = 0
         '
         'TableLayoutPanel2
         '
@@ -64,7 +55,7 @@ Partial Class DialogCreateLine
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.BtnSave, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.BtnCancel, 1, 0)
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(261, 159)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(261, 401)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -89,14 +80,23 @@ Partial Class DialogCreateLine
         Me.BtnCancel.Text = "Cancel"
         Me.BtnCancel.UseVisualStyleBackColor = True
         '
+        'ViewLine1
+        '
+        Me.ViewLine1.AutoSize = True
+        Me.ViewLine1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ViewLine1.Location = New System.Drawing.Point(3, 3)
+        Me.ViewLine1.Name = "ViewLine1"
+        Me.ViewLine1.Size = New System.Drawing.Size(420, 392)
+        Me.ViewLine1.TabIndex = 0
+        '
         'DialogCreateLine
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(426, 191)
+        Me.ClientSize = New System.Drawing.Size(426, 433)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Name = "DialogCreateLine"
-        Me.Text = "DialogCreateLine"
+        Me.Text = "Edit Line"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         Me.TableLayoutPanel2.ResumeLayout(False)

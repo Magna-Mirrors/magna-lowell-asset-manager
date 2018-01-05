@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class EditLines
     Inherits DevExpress.XtraEditors.XtraUserControl
 
     'UserControl overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         If disposing AndAlso components IsNot Nothing Then
             components.Dispose()
@@ -17,23 +17,24 @@ Partial Class EditLines
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TreeView1 = New System.Windows.Forms.TreeView()
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.AddLineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.ContextMenuStripLine = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.AddLineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EditLineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
-        Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStripLine.SuspendLayout()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -57,31 +58,17 @@ Partial Class EditLines
         '
         'TreeView1
         '
-        Me.TreeView1.ContextMenuStrip = Me.ContextMenuStrip1
         Me.TreeView1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TreeView1.Location = New System.Drawing.Point(12, 12)
         Me.TreeView1.Name = "TreeView1"
         Me.TreeView1.Size = New System.Drawing.Size(174, 525)
         Me.TreeView1.TabIndex = 4
         '
-        'ContextMenuStrip1
-        '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddLineToolStripMenuItem})
-        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(116, 26)
-        '
-        'AddLineToolStripMenuItem
-        '
-        Me.AddLineToolStripMenuItem.Name = "AddLineToolStripMenuItem"
-        Me.AddLineToolStripMenuItem.Size = New System.Drawing.Size(115, 22)
-        Me.AddLineToolStripMenuItem.Text = "Add Line"
-        '
         'LayoutControlGroup1
         '
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "LayoutControlGroup1"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(680, 549)
         Me.LayoutControlGroup1.TextVisible = False
@@ -104,6 +91,24 @@ Partial Class EditLines
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem2.TextVisible = False
         '
+        'ContextMenuStripLine
+        '
+        Me.ContextMenuStripLine.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddLineToolStripMenuItem, Me.EditLineToolStripMenuItem})
+        Me.ContextMenuStripLine.Name = "ContextMenuStrip1"
+        Me.ContextMenuStripLine.Size = New System.Drawing.Size(122, 48)
+        '
+        'AddLineToolStripMenuItem
+        '
+        Me.AddLineToolStripMenuItem.Name = "AddLineToolStripMenuItem"
+        Me.AddLineToolStripMenuItem.Size = New System.Drawing.Size(121, 22)
+        Me.AddLineToolStripMenuItem.Text = "Add Line"
+        '
+        'EditLineToolStripMenuItem
+        '
+        Me.EditLineToolStripMenuItem.Name = "EditLineToolStripMenuItem"
+        Me.EditLineToolStripMenuItem.Size = New System.Drawing.Size(121, 22)
+        Me.EditLineToolStripMenuItem.Text = "Edit Line"
+        '
         'EditLines
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -113,10 +118,10 @@ Partial Class EditLines
         Me.Size = New System.Drawing.Size(680, 549)
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
-        Me.ContextMenuStrip1.ResumeLayout(False)
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStripLine.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -127,6 +132,7 @@ Partial Class EditLines
     Friend WithEvents LayoutControlGroup1 As DevExpress.XtraLayout.LayoutControlGroup
     Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem2 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents ContextMenuStripLine As ContextMenuStrip
     Friend WithEvents AddLineToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents EditLineToolStripMenuItem As ToolStripMenuItem
 End Class

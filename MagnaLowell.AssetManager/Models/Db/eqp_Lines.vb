@@ -14,7 +14,7 @@ Partial Public Class eqp_Lines
     Public Property Id As Integer
     Public Property LineName As String
     Public Property Dept As String
-    Public Property Description As String
+    Public Property LineDefinition As String
     Public Property MaxConcurrentLogins As Integer
     Public Property WcfFileName As String
     Public Property SelectCmd As String

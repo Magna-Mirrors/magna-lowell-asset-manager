@@ -9,7 +9,7 @@ Public Class DbgCfgInterface
     Public Function ReadCfg() As CfgSettings Implements ICfgInterface.ReadCfg
 
         If _cfg Is Nothing Then
-            _cfg = New CfgSettings With {.DataBase = "Magna_Lowell",
+            _cfg = New CfgSettings With {.DataBase = "MagnaLowell",
                                             .PasswordDecrypted = "123456789",
                                             .UserName = "debuguser",
                                             .ServerInstance = ".\sqlexpress"}
