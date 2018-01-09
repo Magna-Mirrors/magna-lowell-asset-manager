@@ -32,6 +32,13 @@ Public Class StationEdit
 
         _data = data
         _selectedStation = selectedStation
+        If selectedStation.Id > 0 Then
+            StatusEnumBindingSource.DataSource = _data.FilteredStatuses(selectedStation)
+            StatusEnumBindingSource.ResetBindings(False)
+        Else
+            GridControl1.Enabled = False
+
+        End If
 
         ErgonomicCategoryBindingSource.DataSource = _data.ErgoCategories
         DisplayCfgTagBindingSource.DataSource = _data.Tags
@@ -61,4 +68,32 @@ Public Class StationEdit
             End If
         End If
     End Sub
+
+
+    Private Sub BtnAddState_Click(sender As Object, e As EventArgs) Handles BtnAddState.Click
+        Dim dilg = New DialogEditStationState()
+        Dim newstat = New StatusEnum() With {.StationId = _selectedStation.Id, .EditState = EditState.Create}
+        dilg.LoadData(newstat, _data.FilteredStatuses(_selectedStation))
+        If dilg.ShowDialog() = DialogResult.OK Then
+            _data.AllStatuses.Add(newstat)
+            StatusEnumBindingSource.ResetBindings(False)
+        End If
+    End Sub
+
+    Private Sub BtnEditState_Click(sender As Object, e As EventArgs) Handles BtnEditState.Click
+        Dim dilg = New DialogEditStationState()
+        Dim stat = TryCast(GridView1.GetRow(GridView1.GetSelectedRows().First), StatusEnum)
+        If stat IsNot Nothing Then
+            dilg.LoadData(stat, _data.FilteredStatuses(_selectedStation))
+            If dilg.ShowDialog() = DialogResult.OK Then
+                stat.EditState = EditState.Edit
+                '_data.AllStatuses.Add(newstat)
+                StatusEnumBindingSource.ResetBindings(False)
+            End If
+        End If
+    End Sub
+
+    'Private Sub GridView1_CellValueChanging(sender As Object, e As DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs) Handles GridView1.CellValueChanging
+    '    e.v
+    'End Sub
 End Class

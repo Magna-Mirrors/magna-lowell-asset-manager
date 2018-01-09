@@ -113,6 +113,8 @@
     <Compile Include="Controllers\EditCfgController.vb" />
     <Compile Include="Controllers\EditLineController.vb" />
     <Compile Include="DbFactory.vb" />
+    <Compile Include="Interfaces\IEditRepository.vb" />
+    <Compile Include="Interfaces\IRepository.vb" />
     <Compile Include="Models\Db\Eqp_ErgonomicCategories.vb">
       <DependentUpon>MagnaLowell.tt</DependentUpon>
     </Compile>
@@ -197,6 +199,12 @@
     <Compile Include="Views\Dialogs\DialogCreateLine.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Views\Dialogs\DialogEditStationState.Designer.vb">
+      <DependentUpon>DialogEditStationState.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\DialogEditStationState.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Views\Dialogs\DialogEditStationStates.Designer.vb">
       <DependentUpon>DialogEditStationStates.vb</DependentUpon>
     </Compile>
@@ -256,6 +264,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Dialogs\DialogCreateLine.resx">
       <DependentUpon>DialogCreateLine.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Dialogs\DialogEditStationState.resx">
+      <DependentUpon>DialogEditStationState.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Dialogs\DialogEditStationStates.resx">
       <DependentUpon>DialogEditStationStates.vb</DependentUpon>

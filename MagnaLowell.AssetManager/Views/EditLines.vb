@@ -50,7 +50,7 @@ Public Class EditLines
             End Select
         End If
     End Sub
-    Private Function CreateLineNode(l As Line, data As EditLinesViewModel) As TreeNode
+    Private Shared Function CreateLineNode(l As Line, data As EditLinesViewModel) As TreeNode
         Dim n = New TreeNode($"{l.Dept}: {l.LineName}") With {.Tag = New LineViewModel(l, data.Lines)}
         Select Case l.EditState
             Case EditState.Create
@@ -61,7 +61,7 @@ Public Class EditLines
                 n.BackColor = Color.PaleGoldenrod
         End Select
         Dim subNPartResults = New TreeNode($"Part Results") With {.Tag = New PartResultsViewModel(data.PartResults, l)}
-        Dim subNStations = New TreeNode($"Stations") With {.Tag = New StationViewModel(l, data.Stations, data.ErgonomicCategories, data.GetTags())}
+        Dim subNStations = New TreeNode($"Stations") With {.Tag = New StationViewModel(l, data.Stations, data.ErgonomicCategories, data.GetTags(), data.Statuses)}
         n.Nodes.Add(subNPartResults)
         n.Nodes.Add(subNStations)
         Return n
@@ -76,6 +76,7 @@ Public Class EditLines
 
         Return If(currentView?.Save(), False)
     End Function
+
     Private Sub TreeView1_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TreeView1.AfterSelect
         If e.Node IsNot Nothing AndAlso e.Node.Tag IsNot Nothing Then
             TreeView1.ContextMenuStrip = Nothing
@@ -104,6 +105,7 @@ Public Class EditLines
         currentView.Control.AutoSize = True
         currentView.Control.AutoSizeMode = AutoSizeMode.GrowAndShrink
     End Sub
+
     Private Sub ClearView()
         currentView = Nothing
         Panel1.Controls.Clear()

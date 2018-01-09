@@ -11,6 +11,10 @@ Public Class StationRepository
         Return New Object() {model.Id}
     End Function
 
+    Public Function GetStationsWithTags() As IEnumerable(Of Station)
+        Return Retrieve(Function(x) x.StatusTagId IsNot Nothing).ToList()
+    End Function
+
     Protected Overrides Function MapOutRecord(inModel As Station, outRecord As eqp_Stations) As eqp_Stations
         outRecord.StationId = inModel.Id
         outRecord.LineId = inModel.LineId

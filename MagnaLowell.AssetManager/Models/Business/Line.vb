@@ -1,8 +1,7 @@
 ﻿Imports MagnaLowell.AssetManager
 
 Public Class Line
-    Inherits EditModel
-    Implements ICopy(Of Line)
+    Implements ICopy(Of Line), IEditModel
 
     Public Sub New(l As Line)
         l.CopyTo(Me)
@@ -19,16 +18,18 @@ Public Class Line
         item.EditState = EditState
     End Sub
 
-    Public Property Id As Integer '
-    Public Property LineName As String '
-    Public Property Dept As String '
-    Public Property Definition As String '
-    Public Property MaxConcurrentLogins As Integer '
-    Public Property WcfFileName As String '
-    Public Property SelectCommand As String '
-    Public Property ScheduleFolder As String '
+    Public Property Id As Integer
+    Public Property LineName As String
+    Public Property Dept As String
+    Public Property Definition As String
+    Public Property MaxConcurrentLogins As Integer
+    Public Property WcfFileName As String
+    Public Property SelectCommand As String
+    Public Property ScheduleFolder As String
     Public Property SchedulerMethod As SchedulerMode
-    Public Property WorkBufferMinutes As Decimal '
-    Public Property ReOrderPercentThreshold As Decimal '
-    Public Property Workcell As String '
+    Public Property WorkBufferMinutes As Decimal
+    Public Property ReOrderPercentThreshold As Decimal
+    Public Property Workcell As String
+    Public Property EditState As EditState Implements IEditModel.EditState
+
 End Class

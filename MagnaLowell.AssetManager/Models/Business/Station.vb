@@ -1,8 +1,7 @@
 ﻿Imports MagnaLowell.AssetManager
 
 Public Class Station
-    Inherits EditModel
-    Implements ICopy(Of Station)
+    Implements ICopy(Of Station), IEditModel
 
     Public Sub New(s As Station)
         s.CopyTo(Me)
@@ -33,4 +32,6 @@ Public Class Station
     Public Property Name As String
     Public Property Description As String
     Public Property StatusTagId As Integer?
+    Public Property EditState As EditState Implements IEditModel.EditState
+
 End Class

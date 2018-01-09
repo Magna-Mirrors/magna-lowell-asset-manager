@@ -6,6 +6,7 @@ Public MustInherit Class ReadonlyRepository(Of TModel As {Class, New}, TRecord A
     Implements IReadonlyRepository(Of TModel)
 
     Protected ReadOnly DbFactory As DbFactory
+
     Public Sub New(dbFactory As DbFactory)
         If dbFactory Is Nothing Then
             Throw New NullReferenceException()
@@ -19,6 +20,7 @@ Public MustInherit Class ReadonlyRepository(Of TModel As {Class, New}, TRecord A
             Return AutoMap(records.ToList())
         End Using
     End Function
+
     Public Overridable Async Function GetAllAsync() As Task(Of IEnumerable(Of TModel)) Implements IReadonlyRepository(Of TModel).GetAllAsync
         Using ctx = DbFactory.GetDbInstance()
             Dim records = ctx.Set(Of TRecord)
@@ -38,6 +40,7 @@ Public MustInherit Class ReadonlyRepository(Of TModel As {Class, New}, TRecord A
             Return AutoMap(query.ToList())
         End Using
     End Function
+
     Protected Async Function RetrieveAsync(ByVal predicate As Expression(Of Func(Of TRecord, Boolean))) As Task(Of IEnumerable(Of TModel))
         Using ctx = DbFactory.GetDbInstance()
             Dim query As IQueryable(Of TRecord)
@@ -51,10 +54,6 @@ Public MustInherit Class ReadonlyRepository(Of TModel As {Class, New}, TRecord A
         End Using
     End Function
 
-
-
-
-
     Private Function AutoMap(query As IEnumerable(Of TRecord)) As List(Of TModel)
         Dim results As New List(Of TModel)
         For Each record In query.ToList()
@@ -63,6 +62,9 @@ Public MustInherit Class ReadonlyRepository(Of TModel As {Class, New}, TRecord A
         Next record
         Return results
     End Function
-    Protected MustOverride Function MapOutModel(ByVal inRecord As TRecord, ByVal outModel As TModel) As TModel
+
+    Protected Overridable Function MapOutModel(ByVal inRecord As TRecord, ByVal outModel As TModel) As TModel
+        Throw New NotImplementedException()
+    End Function
 
 End Class

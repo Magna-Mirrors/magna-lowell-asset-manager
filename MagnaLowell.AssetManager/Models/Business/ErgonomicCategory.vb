@@ -1,14 +1,15 @@
 ﻿Imports MagnaLowell.AssetManager
 
 Public Class ErgonomicCategory
-    Inherits EditModel
-    Implements ICopy(Of ErgonomicCategory)
+    Implements ICopy(Of ErgonomicCategory), IEditModel
+
 
     Public Property ErgId As Integer
     Public Property Name As String
     Public Property DurrationHrs As Decimal
     Public Property SpanHrs As Decimal
     Public Property RestHrs As Decimal
+    Public Property EditState As EditState Implements IEditModel.EditState
 
     Public Sub CopyTo(item As ErgonomicCategory) Implements ICopy(Of ErgonomicCategory).CopyTo
         item.ErgId = ErgId

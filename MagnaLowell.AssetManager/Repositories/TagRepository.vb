@@ -35,13 +35,13 @@ Public Class TagRepository
 
     Public Overrides Function GetAll() As IEnumerable(Of CfgTag)
         Dim results = Retrieve(Function(x) x.TagRole = OnChangeTagType).ToList()
-        'SetExtraProperties(results)
+        SetExtraProperties(results)
         Return results
     End Function
 
     Public Overrides Async Function GetAllAsync() As Task(Of IEnumerable(Of CfgTag))
         Dim results = (Await RetrieveAsync(Function(x) x.TagRole = OnChangeTagType)).ToList()
-        'Await SetExtraPropertiesAsync(results)
+        Await SetExtraPropertiesAsync(results)
         Return results
     End Function
 

@@ -27,6 +27,7 @@ Public Class ViewPartResults
     Public Function Save() As Boolean Implements IView.Save
 
         If _workingData.PartResultsAll.GroupBy(Function(x) x.Code).Any(Function(x) x.Count > 1) Then
+            MessageBox.Show("There is a code being used multiple times. Data not saved.")
             Return False
         End If
 
@@ -53,6 +54,14 @@ Public Class ViewPartResults
         ElseIf item.EditState = EditState.None Then
             item.EditState = EditState.Edit
         End If
+    End Sub
+
+    Private Sub GridView1_ValidateRow(sender As Object, e As DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs) Handles GridView1.ValidateRow
+        Dim val = TryCast(e.Row, PartResult)
+        If val Is Nothing Then
+            Return
+        End If
+        e.Valid = Not _workingData.PartResultsFiltered.Any(Function(x) x IsNot val AndAlso val.Code = x.Code)
     End Sub
 End Class
 
