@@ -115,6 +115,7 @@
     <Compile Include="DbFactory.vb" />
     <Compile Include="Interfaces\IEditRepository.vb" />
     <Compile Include="Interfaces\IRepository.vb" />
+    <Compile Include="Models\Business\Customer.vb" />
     <Compile Include="Models\Db\Eqp_ErgonomicCategories.vb">
       <DependentUpon>MagnaLowell.tt</DependentUpon>
     </Compile>
@@ -128,6 +129,9 @@
       <DependentUpon>MagnaLowell.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Db\eqp_Stations.vb">
+      <DependentUpon>MagnaLowell.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Db\Part_Customers.vb">
       <DependentUpon>MagnaLowell.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\Base\EditRepository.vb" />
@@ -184,6 +188,7 @@
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="Repositories\CustomerRepository.vb" />
     <Compile Include="Repositories\DeviceRepository.vb" />
     <Compile Include="Repositories\DisplayTagRepository.vb" />
     <Compile Include="Repositories\ErgonomicRepository.vb" />

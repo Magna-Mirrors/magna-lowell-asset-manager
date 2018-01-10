@@ -31,5 +31,6 @@ Public Class Line
     Public Property ReOrderPercentThreshold As Decimal
     Public Property Workcell As String
     Public Property EditState As EditState Implements IEditModel.EditState
+    Public Property Customer As 
 
 End Class

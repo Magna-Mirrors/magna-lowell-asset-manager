@@ -22,7 +22,7 @@ Partial Public Class eqp_Stations
     Public Property ShopLogixFolderName As String
 
     Public Overridable Property Eqp_ErgonomicCategories As Eqp_ErgonomicCategories
-    Public Overridable Property eqp_Lines As eqp_Lines
     Public Overridable Property Eqp_StateEnum As ICollection(Of Eqp_StateEnum) = New HashSet(Of Eqp_StateEnum)
+    Public Overridable Property eqp_Lines As eqp_Lines
 
 End Class

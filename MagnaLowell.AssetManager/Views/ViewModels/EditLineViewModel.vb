@@ -5,13 +5,16 @@
                    stations As IEnumerable(Of Station),
                    ergoCategories As IEnumerable(Of ErgonomicCategory),
                    tags As IEnumerable(Of DisplayCfgTag),
-                   statusEnums As IEnumerable(Of StatusEnum))
+                   statusEnums As IEnumerable(Of StatusEnum),
+                   Customers As List(Of Customer))
         Me.Stations.AddRange(stations)
         Me.Lines.AddRange(lines)
         Me.PartResults.AddRange(partResults)
         Me.ErgonomicCategories = ergoCategories
         Me.Statuses = statusEnums.ToList()
         Me._originaltags = tags
+        Me.Customers = Customers
+
         If tags.Count <> 26 Then
             Debug.Print("adsf")
         End If
@@ -27,4 +30,6 @@
     Public Property PartResults As New List(Of PartResult)
     Public Property Stations As New List(Of Station)
     Public Property Statuses As New List(Of StatusEnum)
+    Public ReadOnly Property Customers As List(Of Customer)
+
 End Class

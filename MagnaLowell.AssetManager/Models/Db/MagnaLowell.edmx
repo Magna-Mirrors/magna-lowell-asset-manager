@@ -82,6 +82,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="int" />
           <Property Name="LineName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Dept" Type="nvarchar" MaxLength="26" />
           <Property Name="LineDefinition" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -125,6 +126,15 @@
           <Property Name="DaysofConsideration" Type="int" Nullable="false" />
           <Property Name="StatusTagId" Type="int" />
           <Property Name="ShopLogixFolderName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Part_Customers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Abrev" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ImageName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK_Line_PartResults">
           <End Role="eqp_Lines" Type="Self.eqp_Lines" Multiplicity="1" />
@@ -183,6 +193,7 @@
           <EntitySet Name="Eqp_PartResults" EntityType="Self.Eqp_PartResults" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Eqp_StateEnum" EntityType="Self.Eqp_StateEnum" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="eqp_Stations" EntityType="Self.eqp_Stations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Part_Customers" EntityType="Self.Part_Customers" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Line_PartResults" Association="Self.FK_Line_PartResults">
             <End Role="eqp_Lines" EntitySet="eqp_Lines" />
             <End Role="Eqp_PartResults" EntitySet="Eqp_PartResults" />
@@ -229,6 +240,7 @@
             <End Role="eqp_Lines" EntitySet="eqp_Lines" />
             <End Role="eqp_Stations" EntitySet="eqp_Stations" />
           </AssociationSet>
+          <EntitySet Name="Part_Customers" EntityType="Magna_LowellModel.Part_Customers" />
           </EntityContainer>
         <EntityType Name="CfgTagRecord">
           <Key>
@@ -382,6 +394,7 @@
           <Property Name="Workcell" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Eqp_PartResults" Relationship="Magna_LowellModel.FK_Line_PartResults" FromRole="eqp_Lines" ToRole="Eqp_PartResults" />
           <NavigationProperty Name="eqp_Stations" Relationship="Magna_LowellModel.FK_Stations_Lines" FromRole="eqp_Lines" ToRole="eqp_Stations" />
+          <Property Name="CustomerId" Type="Int32" />
         </EntityType>
         <Association Name="FK_Line_PartResults">
           <End Type="Magna_LowellModel.eqp_Lines" Role="eqp_Lines" Multiplicity="1" />
@@ -407,6 +420,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Part_Customers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Abrev" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ImageName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -527,6 +549,7 @@
           <EntitySetMapping Name="eqp_Lines">
             <EntityTypeMapping TypeName="Magna_LowellModel.eqp_Lines">
               <MappingFragment StoreEntitySet="eqp_Lines">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
                 <ScalarProperty Name="Workcell" ColumnName="Workcell" />
                 <ScalarProperty Name="ReOrderPercentThreshold" ColumnName="ReOrderPercentThreshold" />
                 <ScalarProperty Name="WorkBufferMinutes" ColumnName="WorkBufferMinutes" />
@@ -538,6 +561,16 @@
                 <ScalarProperty Name="LineDefinition" ColumnName="LineDefinition" />
                 <ScalarProperty Name="Dept" ColumnName="Dept" />
                 <ScalarProperty Name="LineName" ColumnName="LineName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Part_Customers">
+            <EntityTypeMapping TypeName="Magna_LowellModel.Part_Customers">
+              <MappingFragment StoreEntitySet="Part_Customers">
+                <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+                <ScalarProperty Name="Abrev" ColumnName="Abrev" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

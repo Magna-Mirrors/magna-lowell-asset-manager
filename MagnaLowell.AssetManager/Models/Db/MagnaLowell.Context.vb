@@ -26,9 +26,10 @@ Partial Public Class Magna_LowellEntities
     Public Overridable Property GroupRecords() As DbSet(Of GroupRecord)
     Public Overridable Property DeviceRecords() As DbSet(Of DeviceRecord)
     Public Overridable Property Eqp_ErgonomicCategories() As DbSet(Of Eqp_ErgonomicCategories)
-    Public Overridable Property eqp_Lines() As DbSet(Of eqp_Lines)
     Public Overridable Property Eqp_PartResults() As DbSet(Of Eqp_PartResults)
     Public Overridable Property Eqp_StateEnum() As DbSet(Of Eqp_StateEnum)
     Public Overridable Property eqp_Stations() As DbSet(Of eqp_Stations)
+    Public Overridable Property eqp_Lines() As DbSet(Of eqp_Lines)
+    Public Overridable Property Part_Customers() As DbSet(Of Part_Customers)
 
 End Class
