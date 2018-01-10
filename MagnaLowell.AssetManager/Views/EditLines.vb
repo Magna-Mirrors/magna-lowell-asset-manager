@@ -51,7 +51,14 @@ Public Class EditLines
         End If
     End Sub
     Private Shared Function CreateLineNode(l As Line, data As EditLinesViewModel) As TreeNode
-        Dim n = New TreeNode($"{l.Dept}: {l.LineName}") With {.Tag = New LineViewModel(l, data.Lines)}
+        Dim treenodeText As String
+        If l.CustomerId Is Nothing Then
+            treenodeText = $"{l.Dept}: {l.LineName}"
+        Else
+            Dim customer = data.Customers.SingleOrDefault(Function(x) x.Id = l.CustomerId.Value)
+            treenodeText = $"{customer.Abrev} {l.Dept}: {l.LineName}"
+        End If
+        Dim n = New TreeNode(treenodeText) With {.Tag = New LineViewModel(l, data.Lines, data.Customers)}
         Select Case l.EditState
             Case EditState.Create
                 n.BackColor = Color.PaleGreen
@@ -115,7 +122,7 @@ Public Class EditLines
     Private Async Sub AddLineToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddLineToolStripMenuItem.Click
         Dim dilg = New DialogCreateLine()
         Dim line = New Line()
-        Dim lvm = New LineViewModel(line, _data.Lines)
+        Dim lvm = New LineViewModel(line, _data.Lines, _data.Customers)
         dilg.LoadView(lvm)
         If dilg.ShowDialog(Me) = DialogResult.OK AndAlso dilg.Save() Then
             line.EditState = EditState.Create

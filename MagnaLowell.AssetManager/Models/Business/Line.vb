@@ -30,7 +30,8 @@ Public Class Line
     Public Property WorkBufferMinutes As Decimal
     Public Property ReOrderPercentThreshold As Decimal
     Public Property Workcell As String
+    Public Property CustomerId As Integer?
     Public Property EditState As EditState Implements IEditModel.EditState
-    Public Property Customer As 
+    'Public Property Customer As 
 
 End Class

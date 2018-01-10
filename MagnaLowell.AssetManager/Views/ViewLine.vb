@@ -26,6 +26,8 @@ Public Class ViewLine
     Dim _data As LineViewModel
     Public Sub LoadView(data As LineViewModel) Implements IView(Of LineViewModel).LoadView, IEditControl(Of LineViewModel).LoadView
         _data = data
+        CustomerBindingSource.DataSource = _data.Customers
+        CustomerBindingSource.ResetBindings(True)
         TxtId.Text = _data.SelectedLine.Id.ToString()
         TxtName.Text = _data.SelectedLine.LineName
         TxtWcf.Text = _data.SelectedLine.WcfFileName
@@ -38,6 +40,7 @@ Public Class ViewLine
         NudBufferMin.Value = _data.SelectedLine.WorkBufferMinutes
         NudReorderPercent.Value = _data.SelectedLine.ReOrderPercentThreshold
         ComboSchedulerMode.EditValue = _data.SelectedLine.SchedulerMethod
+        ComboCustomer.EditValue = _data.SelectedLine.CustomerId
     End Sub
 
     Public Function Save() As Boolean Implements IView(Of LineViewModel).Save, IEditControl(Of LineViewModel).Save
@@ -53,6 +56,7 @@ Public Class ViewLine
             _data.SelectedLine.WorkBufferMinutes = NudBufferMin.Value
             _data.SelectedLine.ReOrderPercentThreshold = NudReorderPercent.Value
             _data.SelectedLine.SchedulerMethod = CType(ComboSchedulerMode.EditValue, SchedulerMode)
+            _data.SelectedLine.CustomerId = CType(ComboCustomer.EditValue, Integer?)
 
             If _data.SelectedLine.Id = 0 Then
                 _data.SelectedLine.EditState = EditState.Create

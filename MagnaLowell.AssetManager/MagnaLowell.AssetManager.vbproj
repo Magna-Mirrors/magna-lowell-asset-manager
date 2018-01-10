@@ -320,6 +320,7 @@
     <None Include="My Project\DataSources\ConfigUtil.Models.StationStatus.datasource" />
     <None Include="My Project\DataSources\ConfigUtil.Models.User.datasource" />
     <None Include="My Project\DataSources\ConfigUtil.Models.UserLinePermission.datasource" />
+    <None Include="My Project\DataSources\Customer.datasource" />
     <None Include="My Project\DataSources\DisplayCfgTag.datasource" />
     <None Include="My Project\DataSources\ErgonomicCategory.datasource" />
     <None Include="My Project\DataSources\PartResult.datasource" />

@@ -24,6 +24,7 @@ Public Class LineRepository
         outRecord.WorkBufferMinutes = inModel.WorkBufferMinutes
         outRecord.ReOrderPercentThreshold = inModel.ReOrderPercentThreshold
         outRecord.Workcell = inModel.Workcell
+        outRecord.CustomerId = inModel.CustomerId
         Return outRecord
     End Function
 
@@ -41,6 +42,8 @@ Public Class LineRepository
         outModel.WorkBufferMinutes = inRecord.WorkBufferMinutes
         outModel.ReOrderPercentThreshold = inRecord.ReOrderPercentThreshold
         outModel.Workcell = inRecord.Workcell
+        outModel.CustomerId = inRecord.CustomerId
+
         Return outModel
     End Function
 End Class

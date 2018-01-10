@@ -12,6 +12,8 @@ Public Class LineViewModelRepository
     Private ReadOnly _groupRepo As GroupRepository
     Private ReadOnly _deviceRepo As DeviceRepository
     Private ReadOnly _statusrepo As StatusEnumRepository
+    Private ReadOnly _customerRepo As CustomerRepository
+
     Public Sub New(linerepo As LineRepository,
                    partresRepo As PartResultRepository,
                    stationRepo As StationRepository,
@@ -19,7 +21,8 @@ Public Class LineViewModelRepository
                    groupRepo As GroupRepository,
                    deviceRepo As DeviceRepository,
                    tagRepo As DisplayTagRepository,
-                   statusrepo As StatusEnumRepository)
+                   statusrepo As StatusEnumRepository,
+                   customerRepo As CustomerRepository)
         _linerepo = linerepo
         _partresRepo = partresRepo
         _stationRepo = stationRepo
@@ -28,6 +31,7 @@ Public Class LineViewModelRepository
         _deviceRepo = deviceRepo
         _groupRepo = groupRepo
         _statusrepo = statusrepo
+        _customerRepo = customerRepo
     End Sub
 
     Public Async Function Save(model As EditLinesViewModel) As Task(Of TransactionResult(Of EditLinesViewModel)) Implements IEditRepository(Of EditLinesViewModel).Save
@@ -46,10 +50,12 @@ Public Class LineViewModelRepository
         Dim ergoT = _ergoRepo.GetAll()
         Dim tags = _tagRepo.GetAll()
         Dim statuses = _statusrepo.GetAll()
+        Dim customers = _customerRepo.GetAll()
+
         If tags.Any(Function(x) x.GroupId = 0) Then
             Throw New Exception()
         End If
-        Return New EditLinesViewModel(lineT, partResT, stationsT, ergoT, tags, statuses)
+        Return New EditLinesViewModel(lineT, partResT, stationsT, ergoT, tags, statuses, customers)
     End Function
 
     Public Async Function GetAllAsync() As Task(Of EditLinesViewModel) Implements IEditRepository(Of EditLinesViewModel).GetAllAsync
@@ -59,13 +65,14 @@ Public Class LineViewModelRepository
         Dim ergoT = _ergoRepo.GetAllAsync()
         Dim tagsT = _tagRepo.GetAllAsync()
         Dim statusesT = _statusrepo.GetAllAsync()
+        Dim customersT = _customerRepo.GetAllAsync()
 
         Dim tags = Await tagsT
         If tags.Any(Function(x) x.GroupId = 0) Then
             Throw New Exception()
         End If
 
-        Return New EditLinesViewModel(Await lineT, Await partResT, Await stationsT, Await ergoT, tags, Await statusesT)
+        Return New EditLinesViewModel(Await lineT, Await partResT, Await stationsT, Await ergoT, tags, Await statusesT, Await customersT)
     End Function
 End Class
 

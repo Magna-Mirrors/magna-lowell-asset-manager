@@ -82,7 +82,6 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CustomerId" Type="int" />
           <Property Name="LineName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Dept" Type="nvarchar" MaxLength="26" />
           <Property Name="LineDefinition" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -94,6 +93,7 @@
           <Property Name="WorkBufferMinutes" Type="decimal" Precision="6" Scale="2" Nullable="false" />
           <Property Name="ReOrderPercentThreshold" Type="decimal" Precision="4" Scale="2" Nullable="false" />
           <Property Name="Workcell" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="CustomerId" Type="int" />
         </EntityType>
         <EntityType Name="Eqp_PartResults">
           <Key>
@@ -136,6 +136,18 @@
           <Property Name="Abrev" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="ImageName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <Association Name="FK_eqp_Lines_Part_Customers">
+          <End Role="Part_Customers" Type="Self.Part_Customers" Multiplicity="0..1" />
+          <End Role="eqp_Lines" Type="Self.eqp_Lines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Part_Customers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="eqp_Lines">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Line_PartResults">
           <End Role="eqp_Lines" Type="Self.eqp_Lines" Multiplicity="1" />
           <End Role="Eqp_PartResults" Type="Self.Eqp_PartResults" Multiplicity="*" />
@@ -194,6 +206,10 @@
           <EntitySet Name="Eqp_StateEnum" EntityType="Self.Eqp_StateEnum" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="eqp_Stations" EntityType="Self.eqp_Stations" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Part_Customers" EntityType="Self.Part_Customers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_eqp_Lines_Part_Customers" Association="Self.FK_eqp_Lines_Part_Customers">
+            <End Role="Part_Customers" EntitySet="Part_Customers" />
+            <End Role="eqp_Lines" EntitySet="eqp_Lines" />
+          </AssociationSet>
           <AssociationSet Name="FK_Line_PartResults" Association="Self.FK_Line_PartResults">
             <End Role="eqp_Lines" EntitySet="eqp_Lines" />
             <End Role="Eqp_PartResults" EntitySet="Eqp_PartResults" />
@@ -241,6 +257,10 @@
             <End Role="eqp_Stations" EntitySet="eqp_Stations" />
           </AssociationSet>
           <EntitySet Name="Part_Customers" EntityType="Magna_LowellModel.Part_Customers" />
+          <AssociationSet Name="FK_eqp_Lines_Part_Customers" Association="Magna_LowellModel.FK_eqp_Lines_Part_Customers">
+            <End Role="Part_Customers" EntitySet="Part_Customers" />
+            <End Role="eqp_Lines" EntitySet="eqp_Lines" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="CfgTagRecord">
           <Key>
@@ -395,6 +415,7 @@
           <NavigationProperty Name="Eqp_PartResults" Relationship="Magna_LowellModel.FK_Line_PartResults" FromRole="eqp_Lines" ToRole="Eqp_PartResults" />
           <NavigationProperty Name="eqp_Stations" Relationship="Magna_LowellModel.FK_Stations_Lines" FromRole="eqp_Lines" ToRole="eqp_Stations" />
           <Property Name="CustomerId" Type="Int32" />
+          <NavigationProperty Name="Part_Customers" Relationship="Magna_LowellModel.FK_eqp_Lines_Part_Customers" FromRole="eqp_Lines" ToRole="Part_Customers" />
         </EntityType>
         <Association Name="FK_Line_PartResults">
           <End Type="Magna_LowellModel.eqp_Lines" Role="eqp_Lines" Multiplicity="1" />
@@ -428,7 +449,20 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Abrev" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="ImageName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="eqp_Lines" Relationship="Magna_LowellModel.FK_eqp_Lines_Part_Customers" FromRole="Part_Customers" ToRole="eqp_Lines" />
         </EntityType>
+        <Association Name="FK_eqp_Lines_Part_Customers">
+          <End Type="Magna_LowellModel.Part_Customers" Role="Part_Customers" Multiplicity="0..1" />
+          <End Type="Magna_LowellModel.eqp_Lines" Role="eqp_Lines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Part_Customers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="eqp_Lines">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

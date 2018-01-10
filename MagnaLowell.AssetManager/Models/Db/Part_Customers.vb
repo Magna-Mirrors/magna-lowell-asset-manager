@@ -16,4 +16,6 @@ Partial Public Class Part_Customers
     Public Property Abrev As String
     Public Property ImageName As String
 
+    Public Overridable Property eqp_Lines As ICollection(Of eqp_Lines) = New HashSet(Of eqp_Lines)
+
 End Class

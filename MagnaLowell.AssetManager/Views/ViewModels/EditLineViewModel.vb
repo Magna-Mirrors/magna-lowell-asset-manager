@@ -6,7 +6,7 @@
                    ergoCategories As IEnumerable(Of ErgonomicCategory),
                    tags As IEnumerable(Of DisplayCfgTag),
                    statusEnums As IEnumerable(Of StatusEnum),
-                   Customers As List(Of Customer))
+                   Customers As IEnumerable(Of Customer))
         Me.Stations.AddRange(stations)
         Me.Lines.AddRange(lines)
         Me.PartResults.AddRange(partResults)
@@ -30,6 +30,6 @@
     Public Property PartResults As New List(Of PartResult)
     Public Property Stations As New List(Of Station)
     Public Property Statuses As New List(Of StatusEnum)
-    Public ReadOnly Property Customers As List(Of Customer)
+    Public ReadOnly Property Customers As IEnumerable(Of Customer)
 
 End Class
