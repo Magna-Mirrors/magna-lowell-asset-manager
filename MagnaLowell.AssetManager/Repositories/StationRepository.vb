@@ -16,7 +16,7 @@ Public Class StationRepository
     End Function
 
     Protected Overrides Function MapOutRecord(inModel As Station, outRecord As eqp_Stations) As eqp_Stations
-        outRecord.StationId = inModel.Id
+        'outRecord.StationId = inModel.Id
         outRecord.LineId = inModel.LineId
         outRecord.ErgonomicId = inModel.ErgonomicId
         outRecord.MinTrainingHours = inModel.MinTrainingHours
