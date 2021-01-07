@@ -24,6 +24,7 @@ Partial Public Class eqp_Lines
     Public Property ReOrderPercentThreshold As Decimal
     Public Property Workcell As String
     Public Property CustomerId As Nullable(Of Integer)
+    Public Property Description As String
 
     Public Overridable Property Eqp_PartResults As ICollection(Of Eqp_PartResults) = New HashSet(Of Eqp_PartResults)
     Public Overridable Property eqp_Stations As ICollection(Of eqp_Stations) = New HashSet(Of eqp_Stations)

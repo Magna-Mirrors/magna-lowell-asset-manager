@@ -36,6 +36,7 @@
           <Property Name="SerialProtoCol" Type="int" Nullable="false" />
           <Property Name="SerialMsgDelay" Type="int" Nullable="false" />
           <Property Name="LinkType" Type="int" Nullable="false" />
+          <Property Name="ByteSwapStrings" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="_Cfg_Groups">
           <Key>
@@ -82,9 +83,11 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="int" />
           <Property Name="LineName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Dept" Type="nvarchar" MaxLength="26" />
           <Property Name="LineDefinition" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dept" Type="nvarchar" MaxLength="26" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="MaxConcurrentLogins" Type="int" Nullable="false" />
           <Property Name="WcfFileName" Type="nvarchar" MaxLength="120" Nullable="false" />
           <Property Name="SelectCmd" Type="nvarchar" MaxLength="120" Nullable="false" />
@@ -93,7 +96,6 @@
           <Property Name="WorkBufferMinutes" Type="decimal" Precision="6" Scale="2" Nullable="false" />
           <Property Name="ReOrderPercentThreshold" Type="decimal" Precision="4" Scale="2" Nullable="false" />
           <Property Name="Workcell" Type="nvarchar" MaxLength="8" Nullable="false" />
-          <Property Name="CustomerId" Type="int" />
         </EntityType>
         <EntityType Name="Eqp_PartResults">
           <Key>
@@ -112,12 +114,13 @@
           <Property Name="StationId" Type="int" Nullable="false" />
           <Property Name="State" Type="int" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="82" Nullable="false" />
+          <Property Name="TagDesc" Type="nchar" MaxLength="32" />
         </EntityType>
         <EntityType Name="eqp_Stations">
           <Key>
             <PropertyRef Name="StationId" />
           </Key>
-          <Property Name="StationId" Type="int" Nullable="false" />
+          <Property Name="StationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LineId" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -136,18 +139,6 @@
           <Property Name="Abrev" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="ImageName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <Association Name="FK_eqp_Lines_Part_Customers">
-          <End Role="Part_Customers" Type="Self.Part_Customers" Multiplicity="0..1" />
-          <End Role="eqp_Lines" Type="Self.eqp_Lines" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Part_Customers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="eqp_Lines">
-              <PropertyRef Name="CustomerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Line_PartResults">
           <End Role="eqp_Lines" Type="Self.eqp_Lines" Multiplicity="1" />
           <End Role="Eqp_PartResults" Type="Self.Eqp_PartResults" Multiplicity="*" />
@@ -206,10 +197,6 @@
           <EntitySet Name="Eqp_StateEnum" EntityType="Self.Eqp_StateEnum" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="eqp_Stations" EntityType="Self.eqp_Stations" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Part_Customers" EntityType="Self.Part_Customers" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_eqp_Lines_Part_Customers" Association="Self.FK_eqp_Lines_Part_Customers">
-            <End Role="Part_Customers" EntitySet="Part_Customers" />
-            <End Role="eqp_Lines" EntitySet="eqp_Lines" />
-          </AssociationSet>
           <AssociationSet Name="FK_Line_PartResults" Association="Self.FK_Line_PartResults">
             <End Role="eqp_Lines" EntitySet="eqp_Lines" />
             <End Role="Eqp_PartResults" EntitySet="Eqp_PartResults" />
@@ -323,6 +310,7 @@
           <Property Name="SerialProtoCol" Type="Int32" Nullable="false" />
           <Property Name="SerialMsgDelay" Type="Int32" Nullable="false" />
           <Property Name="LinkType" Type="Int32" Nullable="false" />
+          <Property Name="ByteSwapStrings" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Eqp_ErgonomicCategories">
           <Key>
@@ -354,6 +342,7 @@
           <Property Name="State" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="82" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="eqp_Stations" Relationship="Magna_LowellModel.FK_Station_StateEnum" FromRole="Eqp_StateEnum" ToRole="eqp_Stations" />
+          <Property Name="TagDesc" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="eqp_Stations">
           <Key>
@@ -416,6 +405,7 @@
           <NavigationProperty Name="eqp_Stations" Relationship="Magna_LowellModel.FK_Stations_Lines" FromRole="eqp_Lines" ToRole="eqp_Stations" />
           <Property Name="CustomerId" Type="Int32" />
           <NavigationProperty Name="Part_Customers" Relationship="Magna_LowellModel.FK_eqp_Lines_Part_Customers" FromRole="eqp_Lines" ToRole="Part_Customers" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_Line_PartResults">
           <End Type="Magna_LowellModel.eqp_Lines" Role="eqp_Lines" Multiplicity="1" />
@@ -504,6 +494,7 @@
           <EntitySetMapping Name="DeviceRecords">
             <EntityTypeMapping TypeName="Magna_LowellModel.DeviceRecord">
               <MappingFragment StoreEntitySet="_Cfg_Devices">
+                <ScalarProperty Name="ByteSwapStrings" ColumnName="ByteSwapStrings" />
                 <ScalarProperty Name="LinkType" ColumnName="LinkType" />
                 <ScalarProperty Name="SerialMsgDelay" ColumnName="SerialMsgDelay" />
                 <ScalarProperty Name="SerialProtoCol" ColumnName="SerialProtoCol" />
@@ -558,6 +549,7 @@
           <EntitySetMapping Name="Eqp_StateEnum">
             <EntityTypeMapping TypeName="Magna_LowellModel.Eqp_StateEnum">
               <MappingFragment StoreEntitySet="Eqp_StateEnum">
+                <ScalarProperty Name="TagDesc" ColumnName="TagDesc" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="StationId" ColumnName="StationId" />
@@ -583,6 +575,7 @@
           <EntitySetMapping Name="eqp_Lines">
             <EntityTypeMapping TypeName="Magna_LowellModel.eqp_Lines">
               <MappingFragment StoreEntitySet="eqp_Lines">
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
                 <ScalarProperty Name="Workcell" ColumnName="Workcell" />
                 <ScalarProperty Name="ReOrderPercentThreshold" ColumnName="ReOrderPercentThreshold" />

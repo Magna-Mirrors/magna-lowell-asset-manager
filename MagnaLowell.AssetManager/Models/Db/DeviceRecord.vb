@@ -38,5 +38,6 @@ Partial Public Class DeviceRecord
     Public Property SerialProtoCol As Integer
     Public Property SerialMsgDelay As Integer
     Public Property LinkType As Integer
+    Public Property ByteSwapStrings As Boolean
 
 End Class
