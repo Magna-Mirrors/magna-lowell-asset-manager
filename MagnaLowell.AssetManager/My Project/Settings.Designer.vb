@@ -52,15 +52,15 @@ Partial Friend NotInheritable Class Settings
             Return defaultInstance
         End Get
     End Property
-    
-    <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-     Global.System.Configuration.DefaultSettingValueAttribute("Data Source=.\sqlexpress;Initial Catalog=MagnaTempLowell;Persist Security Info=Tr"& _ 
-        "ue;User ID=sa;Password=Winston")>  _
+
+    <Global.System.Configuration.ApplicationScopedSettingAttribute(),
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+     Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
+     Global.System.Configuration.DefaultSettingValueAttribute("Data Source=.\sqlexpress;Initial Catalog=MagnaLowell;Persist Security Info=True;U" &
+        "ser ID=sa;Password=Winston")>
     Public ReadOnly Property MagnaNewaygoDataCollectConnectionString() As String
         Get
-            Return CType(Me("MagnaNewaygoDataCollectConnectionString"),String)
+            Return CType(Me("MagnaNewaygoDataCollectConnectionString"), String)
         End Get
     End Property
 End Class

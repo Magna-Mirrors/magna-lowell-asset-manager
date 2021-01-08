@@ -20,6 +20,7 @@ Partial Public Class eqp_Stations
     Public Property DaysofConsideration As Integer
     Public Property StatusTagId As Nullable(Of Integer)
     Public Property ShopLogixFolderName As String
+    Public Property BadgeReaderIdx As Nullable(Of Integer)
 
     Public Overridable Property Eqp_ErgonomicCategories As Eqp_ErgonomicCategories
     Public Overridable Property Eqp_StateEnum As ICollection(Of Eqp_StateEnum) = New HashSet(Of Eqp_StateEnum)

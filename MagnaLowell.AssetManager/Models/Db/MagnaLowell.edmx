@@ -36,7 +36,6 @@
           <Property Name="SerialProtoCol" Type="int" Nullable="false" />
           <Property Name="SerialMsgDelay" Type="int" Nullable="false" />
           <Property Name="LinkType" Type="int" Nullable="false" />
-          <Property Name="ByteSwapStrings" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="_Cfg_Groups">
           <Key>
@@ -129,6 +128,7 @@
           <Property Name="DaysofConsideration" Type="int" Nullable="false" />
           <Property Name="StatusTagId" Type="int" />
           <Property Name="ShopLogixFolderName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BadgeReaderIdx" Type="int" />
         </EntityType>
         <EntityType Name="Part_Customers">
           <Key>
@@ -151,18 +151,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_sdy_Stations_sdy_ErgonomicCategories">
-          <End Role="Eqp_ErgonomicCategories" Type="Self.Eqp_ErgonomicCategories" Multiplicity="1" />
-          <End Role="eqp_Stations" Type="Self.eqp_Stations" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Eqp_ErgonomicCategories">
-              <PropertyRef Name="ErgId" />
-            </Principal>
-            <Dependent Role="eqp_Stations">
-              <PropertyRef Name="ErgonomicId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Station_StateEnum">
           <End Role="eqp_Stations" Type="Self.eqp_Stations" Multiplicity="1" />
           <End Role="Eqp_StateEnum" Type="Self.Eqp_StateEnum" Multiplicity="*" />
@@ -172,18 +160,6 @@
             </Principal>
             <Dependent Role="Eqp_StateEnum">
               <PropertyRef Name="StationId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Stations_Lines">
-          <End Role="eqp_Lines" Type="Self.eqp_Lines" Multiplicity="1" />
-          <End Role="eqp_Stations" Type="Self.eqp_Stations" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="eqp_Lines">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="eqp_Stations">
-              <PropertyRef Name="LineId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -201,17 +177,9 @@
             <End Role="eqp_Lines" EntitySet="eqp_Lines" />
             <End Role="Eqp_PartResults" EntitySet="Eqp_PartResults" />
           </AssociationSet>
-          <AssociationSet Name="FK_sdy_Stations_sdy_ErgonomicCategories" Association="Self.FK_sdy_Stations_sdy_ErgonomicCategories">
-            <End Role="Eqp_ErgonomicCategories" EntitySet="Eqp_ErgonomicCategories" />
-            <End Role="eqp_Stations" EntitySet="eqp_Stations" />
-          </AssociationSet>
           <AssociationSet Name="FK_Station_StateEnum" Association="Self.FK_Station_StateEnum">
             <End Role="eqp_Stations" EntitySet="eqp_Stations" />
             <End Role="Eqp_StateEnum" EntitySet="Eqp_StateEnum" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Stations_Lines" Association="Self.FK_Stations_Lines">
-            <End Role="eqp_Lines" EntitySet="eqp_Lines" />
-            <End Role="eqp_Stations" EntitySet="eqp_Stations" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -310,7 +278,6 @@
           <Property Name="SerialProtoCol" Type="Int32" Nullable="false" />
           <Property Name="SerialMsgDelay" Type="Int32" Nullable="false" />
           <Property Name="LinkType" Type="Int32" Nullable="false" />
-          <Property Name="ByteSwapStrings" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Eqp_ErgonomicCategories">
           <Key>
@@ -360,6 +327,7 @@
           <NavigationProperty Name="Eqp_ErgonomicCategories" Relationship="Magna_LowellModel.FK_sdy_Stations_sdy_ErgonomicCategories" FromRole="eqp_Stations" ToRole="Eqp_ErgonomicCategories" />
           <NavigationProperty Name="Eqp_StateEnum" Relationship="Magna_LowellModel.FK_Station_StateEnum" FromRole="eqp_Stations" ToRole="Eqp_StateEnum" />
           <NavigationProperty Name="eqp_Lines" Relationship="Magna_LowellModel.FK_Stations_Lines" FromRole="eqp_Stations" ToRole="eqp_Lines" />
+          <Property Name="BadgeReaderIdx" Type="Int32" />
         </EntityType>
         <Association Name="FK_sdy_Stations_sdy_ErgonomicCategories">
           <End Type="Magna_LowellModel.Eqp_ErgonomicCategories" Role="Eqp_ErgonomicCategories" Multiplicity="1" />
@@ -494,7 +462,6 @@
           <EntitySetMapping Name="DeviceRecords">
             <EntityTypeMapping TypeName="Magna_LowellModel.DeviceRecord">
               <MappingFragment StoreEntitySet="_Cfg_Devices">
-                <ScalarProperty Name="ByteSwapStrings" ColumnName="ByteSwapStrings" />
                 <ScalarProperty Name="LinkType" ColumnName="LinkType" />
                 <ScalarProperty Name="SerialMsgDelay" ColumnName="SerialMsgDelay" />
                 <ScalarProperty Name="SerialProtoCol" ColumnName="SerialProtoCol" />
@@ -560,6 +527,7 @@
           <EntitySetMapping Name="eqp_Stations">
             <EntityTypeMapping TypeName="Magna_LowellModel.eqp_Stations">
               <MappingFragment StoreEntitySet="eqp_Stations">
+                <ScalarProperty Name="BadgeReaderIdx" ColumnName="BadgeReaderIdx" />
                 <ScalarProperty Name="ShopLogixFolderName" ColumnName="ShopLogixFolderName" />
                 <ScalarProperty Name="StatusTagId" ColumnName="StatusTagId" />
                 <ScalarProperty Name="DaysofConsideration" ColumnName="DaysofConsideration" />
