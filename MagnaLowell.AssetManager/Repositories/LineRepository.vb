@@ -15,6 +15,7 @@ Public Class LineRepository
         outRecord.Id = inModel.Id
         outRecord.LineName = inModel.LineName
         outRecord.Dept = inModel.Dept
+        outRecord.Description = inModel.LineName
         outRecord.MaxConcurrentLogins = inModel.MaxConcurrentLogins
         outRecord.LineDefinition = inModel.Definition
         outRecord.WcfFileName = inModel.WcfFileName
